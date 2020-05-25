@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nenu.Dao.StudentDao">
+    <!--  根据学生名密码查询-->
+    <select id="findByNameAndPassword" resultType="com.nenu.domain.Student">
+        select * from student where studentName = #{studentName}
+        and studentPassword=#{studentPassword};
+    </select>
+    <!-- 查询所有学生信息-->
+    <select id="findAll" resultType="com.nenu.domain.Student">
+        select * from student;
+    </select>
+<!--    根据用户名查询-->
+    <select id="findByName" resultType="com.nenu.domain.Student">
+        select * from student where studentName = #{studentName}
+    </select>
+    <!-- 新增学生 -->
+    <insert id="addStudent" parameterType="com.nenu.domain.Student">
+        insert into student (studentName,gender,cardID,studentPassword) values
+         (#{studentName},#{gender},#{cardID},#{studentPassword});
+     </insert>
+</mapper>
