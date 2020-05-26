@@ -4,5 +4,6 @@
 <configuration>
     <mappers>
         <mapper resource="com/nenu/Dao/StudentDao.xml"/>
+        <mapper resource="com/nenu/Dao/TeacherDao.xml"/>
     </mappers>
 </configuration>

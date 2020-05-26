@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nenu.Dao.TeacherDao">
+    <!--  根据老师名和密码查询-->
+    <select id="findByNameAndPassword" resultType="com.nenu.domain.Teacher">
+        select * from teacher where teacherName = #{teacherName}
+        and teacherPassword=#{teacherPassword};
+    </select>
+    <!-- 查询所有老师信息-->
+    <select id="findAll" resultType="com.nenu.domain.Teacher">
+        select * from teacher;
+    </select>
+    <!--    根据用户名查询-->
+    <select id="findByName" resultType="com.nenu.domain.Teacher">
+        select * from teacher where teacherName = #{teacherName}
+    </select>
+    <!-- 新增学生 -->
+    <insert id="addTeacher" parameterType="com.nenu.domain.Teacher">
+        insert into teacher (teacherName,gender，teacherPassword) values
+         (#{teacherName},#{gender},#{teacherPassword});
+     </insert>
+</mapper>

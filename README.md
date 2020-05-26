@@ -77,18 +77,18 @@
 
 | 字段名      | 类型          | 是否为主键  | 是否为空 | 描述   |
 | ----------- | ------------- | ---------- | -------- | ------ |
-| TeacherID   | int           | 是         | 否       | 主键ID |
+| teacherID   | int           | 是         | 否       | 主键ID |
 | teacherName | varchar(50)   | 否         | 否       | 姓名   |
-| Sex         | int           | 否         | 否       | 性别   |
+| gender         | varchar(20)           | 否         | 否       | 性别   |
 | Password    | varchar(50)   | 否         | 否       | 密码   |
 
 ### 3.Administrator
 
 | 字段名      | 类型        | 是否为主键  | 是否为空 | 描述   |
 | ----------- | ----------- | ---------- | -------- | ------ |
-| ManagerID   | int         | 是         | 否       | 主键ID |
-| ManagerName | varchar(50) | 否         | 否       | 姓名   |
-| Password    | varchar(20) | 否         | 否       | 密码   |
+| managerID   | int         | 是         | 否       | 主键ID |
+| managerName | varchar(50) | 否         | 否       | 姓名   |
+| password    | varchar(20) | 否         | 否       | 密码   |
 
 ### 4、Questions
 
@@ -98,30 +98,30 @@
 | Subject | varchar(50) | 否         | 否       | 科目   |
 | Chart   | varchar(50) | 否         | 否       | 章节   |
 | Type    | varchar(50) | 否         | 否       | 类型   |
-| Ans1    | varchar(50) | 否         | 否       | A选项  |
-| Ans2    | varchar(50) | 否         | 否       | B选项  |
-| Ans3    | varchar(50) | 否         | 否       | C选项  |
-| Ans4    | varchar(50) | 否         | 否       | D选项  |
-| Answer  | int         | 否         | 否       | 答案   |
-| Public  | int         | 否         | 否       | 用户名 |
+| ans1    | varchar(50) | 否         | 否       | A选项  |
+| ans2    | varchar(50) | 否         | 否       | B选项  |
+| ans3    | varchar(50) | 否         | 否       | C选项  |
+| ans4    | varchar(50) | 否         | 否       | D选项  |
+| answer  | varchar(50) | 否         | 否       | 答案   |
+| public  | int         | 否         | 否       | 用户名 |
 
 ### 5.Demand
 
 | 字段名           | 类型        | 是否为主键  | 是否为空 | 描述      |
 | ---------------- | ----------- | ---------- | -------- | -------- |
-| CardID           | varchar(50) | 是         | 否       | 主键ID    |
+| cardID           | varchar(50) | 是         | 否       | 主键ID    |
 | studentID        | int         | 否         | 否       | 学号      |
 | studentName      | varchar(50) | 否         | 否       | 姓名      |
-| ObjectlvesScore  | int         | 否         | 否       | 客观题分数 |
-| SubjectlvesScore | int         | 否         | 否       | 主观题分数 |
+| objectlvesScore  | int         | 否         | 否       | 客观题分数 |
+| subjectlvesScore | int         | 否         | 否       | 主观题分数 |
 | TotalScore       | float       | 否         | 否       | 总分       |
 
 ### 6.Affiche
 
 | 字段名   | 类型        | 是否为主键 | 是否为空 | 描述   |
 | -------- | ----------- | ---------- | -------- | ------ |
-| ID      | int         | 是         | 否       | 主键ID |
-| Title   | varchar(50) | 否         | 否       | 标题   |
+| id      | int         | 是         | 否       | 主键ID |
+| title   | varchar(50) | 否         | 否       | 标题   |
 
 ---
 
@@ -131,15 +131,15 @@ USE EXAM;
 >CREATE TABLE Student
 (studentID int(50) primary key not null,studentName varchar(50) not null,gender int not null,cardID varchar(50) not null,studentPassword varchar(50) not null);
 >CREATE TABLE Teacher
-(teacharID int auto_increment primary key not null,teacherName varchar(50) not null,Sex int not null,Password varchar(50) not null);
+(teacharID int auto_increment primary key not null,teacherName varchar(50) not null,gender varchar(20) not null,Password varchar(50) not null);
 >CREATE TABLE Administrator
-(ManagerID int auto_increment primary key not null,ManagerName varchar(50) not null,Password varchar(20) not null);
+(managerID int auto_increment primary key not null,managerName varchar(50) not null,password varchar(20) not null);
 >CREATE TABLE Questions
-(Id int auto_increment primary key not null,Subject varchar(50) not null,Chart varchar(50) not null,Title varchar(50) not null,Type varchar(50) not null,Ans1 varchar(50) not null,Ans2 varchar(50) not null,Ans3 varchar(50) not null,Ans4 varchar(50) not null,Answer int not null,Public int not null);
+(id int auto_increment primary key not null,subject varchar(50) not null,chart varchar(50) not null,title varchar(50) not null,type varchar(50) not null,ans1 varchar(50) not null,ans2 varchar(50) not null,ans3 varchar(50) not null,ans4 varchar(50) not null,answer varchar(50) not null,public int not null);
 >CREATE TABLE Demand
-(CardID varchar(50) not null,studentID int not null,studentName varchar(50) not null,ObjectlvesScore int not null,SubjectlvesScore int not null,TotalScore float not null);
+(cardID varchar(50) not null,studentID int not null,studentName varchar(50) not null,objectlvesScore int not null,subjectlvesScore int not null,totalScore float not null);
 >CREATE TABLE Affiche
-(ID int not null,Title varchar(50) not null);
+(id int not null,title varchar(50) not null);
 
 ---
 

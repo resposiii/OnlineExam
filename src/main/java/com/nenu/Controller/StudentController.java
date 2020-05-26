@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 @Scope("prototype")
@@ -57,6 +60,14 @@ public class StudentController {
             return "error";
         }
     }
+
+    @RequestMapping(value = "/s_findAll",method = RequestMethod.POST)
+    public String finAll(HttpSession session){
+        List<Student> students = iStudentService.findAll();
+        session.setAttribute("students",students);
+        return "s_list";
+    }
+
     @RequestMapping("/test")
     public String test(){
         System.out.println("测试......");

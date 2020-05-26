@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.nenu.Dao.StudentDao">
-    <!--  根据学生名密码查询-->
+    <!--  根据学生名和密码查询-->
     <select id="findByNameAndPassword" resultType="com.nenu.domain.Student">
         select * from student where studentName = #{studentName}
         and studentPassword=#{studentPassword};
@@ -20,4 +20,14 @@
         insert into student (studentName,gender,cardID,studentPassword) values
          (#{studentName},#{gender},#{cardID},#{studentPassword});
      </insert>
+    <!--删除学生-->
+    <delete id="deleteStudent" parameterType="com.nenu.domain.Student">
+        delete from student where studentID = #{studentID}
+    </delete>
+<!--    更新-->
+    <update id="updateStudent" parameterType="com.nenu.domain.Student">
+        update Student set studentName=#{studentName},gender=#{gender},
+        cardID=#{cardID},studentPassword=#{studentPassword} where
+        studentID = #{studentID}
+    </update>
 </mapper>
