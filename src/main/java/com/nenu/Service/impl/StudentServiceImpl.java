@@ -5,11 +5,13 @@ import com.nenu.Service.IStudentService;
 import com.nenu.domain.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
 
 @Service("studentService")
+@Transactional
 public class StudentServiceImpl implements IStudentService {
 
     @Autowired
@@ -32,6 +34,7 @@ public class StudentServiceImpl implements IStudentService {
 
     @Override
     public List<Student> findAll() {
+        System.out.println("find All......");
         return studentDao.findAll();
     }
 

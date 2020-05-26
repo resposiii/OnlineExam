@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpSession;
 
 @Controller
+@Scope("prototype")
 @RequestMapping("/student")
 public class StudentController {
 
@@ -39,7 +40,7 @@ public class StudentController {
 //跳转到注册
     @RequestMapping("/registerPage")
     public String registerPage(){
-        return "student/registerPage";
+        return "s_register";
     }
 
     //注册
@@ -55,5 +56,10 @@ public class StudentController {
         else{
             return "error";
         }
+    }
+    @RequestMapping("/test")
+    public String test(){
+        System.out.println("测试......");
+        return "success";
     }
 }

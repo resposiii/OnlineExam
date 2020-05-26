@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
 public interface StudentDao {
     //根据学生名密码查询
     Student findByNameAndPassword(@Param("studentName")String studentName
@@ -15,7 +14,7 @@ public interface StudentDao {
     //增加学生
     void addStudent(Student student);
     //根据学生名查找
-    Student findByName(String studnetName);
+    Student findByName(String studentName);
     //查找所有
     List<Student> findAll();
 }
