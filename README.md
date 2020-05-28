@@ -92,10 +92,11 @@
 
 ### 4、Questions
 
-| 字段名  | 类型        | 是否为主键 | 是否为空  | 描述   |
+| 字段名   | 类型        | 是否为主键 | 是否为空  | 描述   |
 | ------- | ----------- | ---------- | -------- | ----- |
-| Id      | int         | 是         | 否       | 主键ID |
+| id      | int         | 是         | 否       | 主键ID |
 | Subject | varchar(50) | 否         | 否       | 科目   |
+| title   | varchar(50) | 否         | 否       | 题目   |
 | Chart   | varchar(50) | 否         | 否       | 章节   |
 | Type    | varchar(50) | 否         | 否       | 类型   |
 | ans1    | varchar(50) | 否         | 否       | A选项  |
@@ -103,9 +104,8 @@
 | ans3    | varchar(50) | 否         | 否       | C选项  |
 | ans4    | varchar(50) | 否         | 否       | D选项  |
 | answer  | varchar(50) | 否         | 否       | 答案   |
-| public  | int         | 否         | 否       | 用户名 |
 
-### 5.Demand
+### 5.score
 
 | 字段名           | 类型        | 是否为主键  | 是否为空 | 描述      |
 | ---------------- | ----------- | ---------- | -------- | -------- |
@@ -114,9 +114,9 @@
 | studentName      | varchar(50) | 否         | 否       | 姓名      |
 | objectlvesScore  | int         | 否         | 否       | 客观题分数 |
 | subjectlvesScore | int         | 否         | 否       | 主观题分数 |
-| TotalScore       | float       | 否         | 否       | 总分       |
+| totalScore       | float       | 否         | 否       | 总分       |
 
-### 6.Affiche
+### 6.notice
 
 | 字段名   | 类型        | 是否为主键 | 是否为空 | 描述   |
 | -------- | ----------- | ---------- | -------- | ------ |
@@ -128,17 +128,17 @@
 #### 数据库初始化语句
 CREATE DATABASE EXAM;
 USE EXAM;
->CREATE TABLE Student
+>CREATE TABLE student
 (studentID int(50) primary key not null,studentName varchar(50) not null,gender int not null,cardID varchar(50) not null,studentPassword varchar(50) not null);
 >CREATE TABLE Teacher
 (teacharID int auto_increment primary key not null,teacherName varchar(50) not null,gender varchar(20) not null,Password varchar(50) not null);
->CREATE TABLE Administrator
+>CREATE TABLE administrator
 (managerID int auto_increment primary key not null,managerName varchar(50) not null,password varchar(20) not null);
->CREATE TABLE Questions
-(id int auto_increment primary key not null,subject varchar(50) not null,chart varchar(50) not null,title varchar(50) not null,type varchar(50) not null,ans1 varchar(50) not null,ans2 varchar(50) not null,ans3 varchar(50) not null,ans4 varchar(50) not null,answer varchar(50) not null,public int not null);
->CREATE TABLE Demand
+>CREATE TABLE questions
+(id int auto_increment primary key not null,subject varchar(50) not null,chart varchar(50) not null,title varchar(50) not null,type varchar(50) not null,ans1 varchar(50) not null,ans2 varchar(50) not null,ans3 varchar(50) not null,ans4 varchar(50) not null,answer varchar(50) not null);
+>CREATE TABLE score
 (cardID varchar(50) not null,studentID int not null,studentName varchar(50) not null,objectlvesScore int not null,subjectlvesScore int not null,totalScore float not null);
->CREATE TABLE Affiche
+>CREATE TABLE notice
 (id int not null,title varchar(50) not null);
 
 ---
