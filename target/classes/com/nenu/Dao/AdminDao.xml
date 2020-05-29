@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nenu.Dao.AdminDao">
+    <!--  根据用户名和密码查询-->
+    <select id="findByNameAndPassword" resultType="com.nenu.domain.Admin">
+        select * from administrator where adminName = #{adminName}
+        and password=#{password};
+    </select>
+</mapper>

@@ -12,7 +12,7 @@
         select * from student;
     </select>
 <!--    根据用户名查询-->
-    <select id="findByName" resultType="com.nenu.domain.Student">
+    <select id="findByName" parameterType="string" resultType="com.nenu.domain.Student">
         select * from student where studentName = #{studentName}
     </select>
     <!-- 新增学生 -->

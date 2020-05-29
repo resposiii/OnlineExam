@@ -11,7 +11,7 @@
     <title>注册</title>
 </head>
 <body>
-    <form action="s_register" method="post">
+    <form action="student/s_register" method="post">
         用户名：<input type="text" name="studentName"/>
         <br>
         性别：<input type="text" name="gender">

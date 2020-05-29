@@ -180,4 +180,8 @@ JDBC方式java连接mysql
 >添加了三个系统的用例图
 
 ---
+*qqq* 5.29
+>数据库建立外键是类型必须完全相同
+>建立外键教程https://www.php.cn/tool/navicat/427976.html
 
+---

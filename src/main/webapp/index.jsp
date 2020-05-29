@@ -17,5 +17,8 @@
        <input type="submit" value="登录">
    </form>
     <a href="student/registerPage">注册</a>
+    <br>
+    <a href="t_login.jsp">教师登录</a>
+    <a href="a_login.jsp">管理员登录</a>
 </body>
 </html>
