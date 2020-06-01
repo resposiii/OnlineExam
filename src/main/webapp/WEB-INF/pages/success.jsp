@@ -12,6 +12,5 @@
 </head>
 <body>
     <h1>success</h1>
-    ${student.studentName}
 </body>
 </html>

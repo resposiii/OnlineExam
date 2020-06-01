@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nenu.Dao.ScoreDao">
+<!--    根据id查成绩-->
+    <select id="findScoreById" resultType="com.nenu.domain.Score">
+        select * from score where studentID = #{studentID}
+    </select>
+<!--    查找所有-->
+    <select id="findScore" resultType="com.nenu.domain.Score">
+        select * from score;
+    </select>
+<!--    增加-->
+    <insert id="addScore" parameterType="com.nenu.domain.Score">
+        insert into score (studentID,cardID,studentName,score) values
+        (#{studentID},#{cardID},#{studentName},#{score})
+    </insert>
+</mapper>

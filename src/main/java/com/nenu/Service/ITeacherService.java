@@ -11,6 +11,8 @@ public interface ITeacherService {
     Teacher t_register(Teacher teacher);
     //根据用户名查找
     Teacher findByName(String teacherName);
-
+    //查找所有
     List<Teacher> findAll();
+    //删除
+    void deleteTeacher(Integer teacherID);
 }

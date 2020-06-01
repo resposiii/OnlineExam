@@ -1,7 +1,9 @@
 package com.nenu.test;
 
 import com.nenu.Dao.StudentDao;
+import com.nenu.Service.IScoreService;
 import com.nenu.Service.IStudentService;
+import com.nenu.domain.Score;
 import com.nenu.domain.Student;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -25,11 +27,25 @@ import java.util.List;
 public class Test1 {
     @Autowired
    private IStudentService studentService;
+    @Autowired
+    private IScoreService scoreService;
     @Test
     public void testFindAll(){
         List<Student> students = studentService.findAll();
         for (Student student:students){
             System.out.println(student);
+        }
+    }
+    @Test
+    public void testDeleteStudent(){
+        studentService.deleteStudent(2018002);
+    }
+
+    @Test
+    public void testFindScore(){
+        List<Score> scores = scoreService.findScore();
+        for (Score score:scores){
+            System.out.println(score);
         }
     }
 }

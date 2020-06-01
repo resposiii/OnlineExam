@@ -15,4 +15,6 @@ public interface TeacherDao {
     Teacher findByName(String teacherName);
     //查找所有
     List<Teacher> findAll();
+    //删除
+    void deleteTeacher(Integer teacherID);
 }

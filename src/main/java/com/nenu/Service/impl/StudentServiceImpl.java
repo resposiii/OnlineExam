@@ -33,6 +33,11 @@ public class StudentServiceImpl implements IStudentService {
     }
 
     @Override
+    public void deleteStudent(Integer studentID) {
+        studentDao.deleteStudent(studentID);
+    }
+
+    @Override
     public List<Student> findAll() {
         System.out.println("find All......");
         return studentDao.findAll();

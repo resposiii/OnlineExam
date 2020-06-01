@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nenu.Dao.QuestionsDao">
+<!--    增加题目-->
+    <insert id="addQuestion" parameterType="com.nenu.domain.Questions">
+        insert into questions (subject,chart,title,types,ans1,ans2,ans3,ans4,answer)
+         values
+         (#{subject},#{chart},#{title},#{types},#{ans1},#{ans2},#{ans3},#{ans4},#{answer});
+     </insert>
+<!--    删除-->
+    <delete id="deleteQuestion" parameterType="com.nenu.domain.Questions">
+        delete from questions where id = #{id};
+    </delete>
+</mapper>

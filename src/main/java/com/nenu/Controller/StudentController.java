@@ -1,6 +1,10 @@
 package com.nenu.Controller;
 
+import com.nenu.Service.INoticeService;
+import com.nenu.Service.IScoreService;
 import com.nenu.Service.IStudentService;
+import com.nenu.domain.Notice;
+import com.nenu.domain.Score;
 import com.nenu.domain.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -21,8 +25,14 @@ public class StudentController {
 
     @Autowired
     private IStudentService iStudentService;
+
+    @Autowired
+    private IScoreService scoreService;
+
+    @Autowired
+    private INoticeService noticeService;
 //学生登陆
-    @RequestMapping(value = "/s_login",method = RequestMethod.POST)
+    @RequestMapping(value = "/s_login")
     public ModelAndView login(String studentName, String studentPassword, ModelAndView mv, HttpSession session){
         Student student = iStudentService.s_login(studentName,studentPassword);
         if (student!=null){
@@ -47,7 +57,7 @@ public class StudentController {
     }
 
     //注册
-    @RequestMapping(value = "/s_register", method = RequestMethod.POST)
+    @RequestMapping(value = "/s_register")
     public String register(Student student){
         String studentName = student.getStudentName();
         //无该用户可以注册
@@ -61,16 +71,31 @@ public class StudentController {
         }
     }
 
-    @RequestMapping(value = "/s_findAll",method = RequestMethod.POST)
+    @RequestMapping(value = "/s_findAll")
     public String finAll(HttpSession session){
         List<Student> students = iStudentService.findAll();
         session.setAttribute("students",students);
         return "s_list";
     }
 
+    @RequestMapping(value = "/score")
+    public String findScoreById(int studentID,HttpSession session){
+        List<Score> scores = scoreService.findScoreById(studentID);
+        session.setAttribute("scores",scores);
+        return "s_score";
+    }
+
+    public String findAllNotice(HttpSession session){
+        List<Notice> notices = noticeService.findAllNotice();
+        session.setAttribute("notices",notices);
+        return "notice";
+    }
+
+
     @RequestMapping("/test")
     public String test(){
         System.out.println("测试......");
         return "success";
     }
+
 }

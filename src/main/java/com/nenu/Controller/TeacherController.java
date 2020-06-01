@@ -1,6 +1,8 @@
 package com.nenu.Controller;
 
+import com.nenu.Service.IScoreService;
 import com.nenu.Service.ITeacherService;
+import com.nenu.domain.Score;
 import com.nenu.domain.Student;
 import com.nenu.domain.Teacher;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 @Scope("prototype")
@@ -20,7 +23,10 @@ public class TeacherController {
     @Autowired
     private ITeacherService teacherService;
 
-    @RequestMapping(value = "/t_login",method = RequestMethod.POST)
+    @Autowired
+    private IScoreService scoreService;
+
+    @RequestMapping(value = "/t_login")
     public ModelAndView login(String teacherName, String teacherPassword, ModelAndView mv, HttpSession session){
         Teacher teacher = teacherService.t_login(teacherName,teacherPassword);
         if (teacher!=null){
@@ -38,7 +44,7 @@ public class TeacherController {
         return mv;
     }
 
-    @RequestMapping(value = "/t_register", method = RequestMethod.POST)
+    @RequestMapping(value = "/t_register")
     public String register(Teacher teacher){
         String teacherName = teacher.getTeacherName();
         //无该用户可以注册
@@ -50,6 +56,13 @@ public class TeacherController {
         else{
             return "error";
         }
+    }
+
+    @RequestMapping("/findScore")
+    public String findScore(HttpSession session){
+        List<Score> scores = scoreService.findScore();
+        session.setAttribute("scores",scores);
+        return "s_score";
     }
 
 }

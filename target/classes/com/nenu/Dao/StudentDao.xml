@@ -11,6 +11,9 @@
     <select id="findAll" resultType="com.nenu.domain.Student">
         select * from student;
     </select>
+    <select id="findAllStudentID" resultType="java.lang.Integer">
+        select studentID from student;
+    </select>
 <!--    根据用户名查询-->
     <select id="findByName" parameterType="string" resultType="com.nenu.domain.Student">
         select * from student where studentName = #{studentName}
@@ -21,7 +24,7 @@
          (#{studentName},#{gender},#{cardID},#{studentPassword});
      </insert>
     <!--删除学生-->
-    <delete id="deleteStudent" parameterType="com.nenu.domain.Student">
+    <delete id="deleteStudent" parameterType="java.lang.Integer">
         delete from student where studentID = #{studentID}
     </delete>
 <!--    更新-->

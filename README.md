@@ -182,6 +182,7 @@ JDBC方式java连接mysql
 ---
 *qqq* 5.29
 >数据库建立外键是类型必须完全相同
->建立外键教程https://www.php.cn/tool/navicat/427976.html
 
+>建立外键教程https://www.php.cn/tool/navicat/427976.html
+"method = RequestMethod.GET"这个去掉，就可以同时处理GET和POST请求。
 ---

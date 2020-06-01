@@ -20,5 +20,7 @@
     <br>
     <a href="t_login.jsp">教师登录</a>
     <a href="a_login.jsp">管理员登录</a>
+    <a href="student/score?studentID=2018001">成绩</a>
+    <a href="teacher/findScore">Score</a>
 </body>
 </html>

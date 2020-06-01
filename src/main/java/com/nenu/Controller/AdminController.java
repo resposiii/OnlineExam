@@ -19,7 +19,7 @@ public class AdminController {
     @Autowired
     private IAdminService adminService;
 
-    @RequestMapping(value = "/a_login",method = RequestMethod.POST)
+    @RequestMapping(value = "/a_login")
     public ModelAndView login(String adminName, String password, ModelAndView mv, HttpSession session){
         Admin admin = adminService.a_login(adminName,password);
         if (admin!=null){

@@ -20,4 +20,8 @@
         insert into teacher (teacherName,gender，teacherPassword) values
          (#{teacherName},#{gender},#{teacherPassword});
      </insert>
+    <!--删除教师-->
+    <delete id="deleteTeacher" parameterType="java.lang.Integer">
+        delete from teacher where teacherID = #{teacherID}
+    </delete>
 </mapper>

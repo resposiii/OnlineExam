@@ -6,12 +6,19 @@ import java.io.Serializable;
  * 成绩单类
  */
 public class Score implements Serializable {
+    private int id;
     private int studentID;
     private String cardID;
     private String studentName;
-    private int objectlvesScore;
-    private int subjectlvesScore;
-    private float totalScore;
+    private float score;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public int getStudentID() {
         return studentID;
@@ -37,39 +44,22 @@ public class Score implements Serializable {
         this.studentName = studentName;
     }
 
-    public int getObjectlvesScore() {
-        return objectlvesScore;
+    public float getScore() {
+        return score;
     }
 
-    public void setObjectlvesScore(int objectlvesScore) {
-        this.objectlvesScore = objectlvesScore;
-    }
-
-    public int getSubjectlvesScore() {
-        return subjectlvesScore;
-    }
-
-    public void setSubjectlvesScore(int subjectlvesScore) {
-        this.subjectlvesScore = subjectlvesScore;
-    }
-
-    public float getTotalScore() {
-        return totalScore;
-    }
-
-    public void setTotalScore(float totalScore) {
-        this.totalScore = totalScore;
+    public void setScore(float score) {
+        this.score = score;
     }
 
     @Override
     public String toString() {
         return "Score{" +
-                "studentID=" + studentID +
+                "id=" + id +
+                ", studentID=" + studentID +
                 ", cardID='" + cardID + '\'' +
                 ", studentName='" + studentName + '\'' +
-                ", objectlvesScore=" + objectlvesScore +
-                ", subjectlvesScore=" + subjectlvesScore +
-                ", totalScore=" + totalScore +
+                ", score=" + score +
                 '}';
     }
 }

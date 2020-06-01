@@ -5,5 +5,7 @@
     <mappers>
         <mapper resource="com/nenu/Dao/StudentDao.xml"/>
         <mapper resource="com/nenu/Dao/TeacherDao.xml"/>
+        <mapper resource="com/nenu/Dao/AdminDao.xml"/>
+        <mapper resource="com/nenu/Dao/QuestionsDao.xml"/>
     </mappers>
 </configuration>

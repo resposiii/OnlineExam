@@ -35,4 +35,9 @@ public class TeacherServiceImpl implements ITeacherService {
     public List<Teacher> findAll() {
         return teacherDao.findAll();
     }
+
+    @Override
+    public void deleteTeacher(Integer teacherID) {
+        teacherDao.deleteTeacher(teacherID);
+    }
 }
