@@ -11,8 +11,10 @@ public interface IStudentService {
     void s_register(Student student);
     //根据用户名查找
     Student findByName(String studentName);
+    //根据id查找
+    Student findById(int studentID);
     //删除
-    void deleteStudent(Integer studentID);
+    void deleteStudent(int studentID);
     //查找所有
     List<Student> findAll();
 }

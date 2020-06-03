@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 @Service("studentService")
@@ -33,7 +32,12 @@ public class StudentServiceImpl implements IStudentService {
     }
 
     @Override
-    public void deleteStudent(Integer studentID) {
+    public Student findById(int studentID) {
+        return studentDao.findById(studentID);
+    }
+
+    @Override
+    public void deleteStudent(int studentID) {
         studentDao.deleteStudent(studentID);
     }
 

@@ -1,9 +1,11 @@
 package com.nenu.Controller;
 
 import com.nenu.Service.INoticeService;
+import com.nenu.Service.IQuestionService;
 import com.nenu.Service.IScoreService;
 import com.nenu.Service.IStudentService;
 import com.nenu.domain.Notice;
+import com.nenu.domain.Questions;
 import com.nenu.domain.Score;
 import com.nenu.domain.Student;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -31,7 +34,11 @@ public class StudentController {
 
     @Autowired
     private INoticeService noticeService;
-//学生登陆
+
+    @Autowired
+    private IQuestionService questionService;
+
+    //学生登陆
     @RequestMapping(value = "/s_login")
     public ModelAndView login(String studentName, String studentPassword, ModelAndView mv, HttpSession session){
         Student student = iStudentService.s_login(studentName,studentPassword);
@@ -85,17 +92,59 @@ public class StudentController {
         return "s_score";
     }
 
+    @RequestMapping("/notice")
     public String findAllNotice(HttpSession session){
         List<Notice> notices = noticeService.findAllNotice();
         session.setAttribute("notices",notices);
         return "notice";
     }
 
+    @RequestMapping("/exam")
+    public String exam(HttpSession session){
+        List<Questions> questions = questionService.randomFindQuestion();
+        List<Integer> questionIds = new ArrayList<>();
+        for (Questions question:questions){
+            questionIds.add(question.getId());
+        }
+        session.setAttribute("questions",questions);
+        session.setAttribute("questionsIds",questionIds);
+        return "exam";
+    }
+
+    @RequestMapping("/getScore")
+    public String getScore(HttpServletRequest request,HttpSession session){
+        int scores=0;
+        List<Integer> questionIds = (List<Integer>) session.getAttribute("questionsIds");
+        List<String> userAnswers=new ArrayList<>();
+        List<String> answers = new ArrayList<>();
+        //获取用户选择
+        for (int i=0;i<5;i++){
+            userAnswers.add(request.getParameter("subjectOption-"+questionIds.get(i)));
+        }
+        //从数据库中获取答案
+        for (int i=0;i<5;i++){
+            answers.add(questionService.findQuestionById(questionIds.get(i)).getAnswer());
+        }
+        for (int i=0;i<5;i++){
+            if ((userAnswers.get(i)).equals(answers.get(i))){
+                scores+=20;
+            }
+            else {
+                scores+=0;
+            }
+        }
+        session.setAttribute("scores",scores);
+//        Score score = new Score();
+//        score.setScore(scores);
+//        scoreService.addScore(score);
+        return "score";
+    }
 
     @RequestMapping("/test")
     public String test(){
         System.out.println("测试......");
         return "success";
     }
+
 
 }

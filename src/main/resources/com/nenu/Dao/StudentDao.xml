@@ -18,6 +18,10 @@
     <select id="findByName" parameterType="string" resultType="com.nenu.domain.Student">
         select * from student where studentName = #{studentName}
     </select>
+    <!--    根据id查询-->
+    <select id="findById" parameterType="com.nenu.domain.Student">
+        select * from student where studentID = #{studentID}
+    </select>
     <!-- 新增学生 -->
     <insert id="addStudent" parameterType="com.nenu.domain.Student">
         insert into student (studentName,gender,cardID,studentPassword) values

@@ -12,4 +12,26 @@
     <delete id="deleteQuestion" parameterType="com.nenu.domain.Questions">
         delete from questions where id = #{id};
     </delete>
+<!--    查询所有-->
+    <select id="findAllQuestion" resultType="com.nenu.domain.Questions">
+        select * from questions;
+    </select>
+
+    <select id="findQuestionById" resultType="com.nenu.domain.Questions">
+	select * from questions where id=#{id}
+	</select>
+<!--查询所有id-->
+    <select id="findAllQuestionId" resultType="java.lang.Integer">
+	select id from questions;
+	</select>
+<!--随机查找-->
+    <select id="randomFindQuestion" resultType="com.nenu.domain.Questions">
+	select * from questions order by rand() limit 5
+	</select>
+<!--    更新-->
+    <update id="updateQuestion" parameterType="com.nenu.domain.Questions">
+        update questions set subject=#{subject},chart=#{chart},
+        title=#{title},types=#{types},ans1=#{ans1},ans2=#{ans2},
+        ans3=#{ans3},ans4=#{ans4},answer=#{answer}
+    </update>
 </mapper>

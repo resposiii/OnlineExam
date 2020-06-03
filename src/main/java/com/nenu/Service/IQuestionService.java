@@ -1,10 +1,10 @@
-package com.nenu.Dao;
+package com.nenu.Service;
 
 import com.nenu.domain.Questions;
 
 import java.util.List;
 
-public interface QuestionsDao {
+public interface IQuestionService {
     //增加试题
     void addQuestion(Questions questions);
     //删除
@@ -15,7 +15,7 @@ public interface QuestionsDao {
     List<Integer> findAllQuestionId();
     //更新
     void updateQuestion(Questions question);
-    //根据id查找
+    //通过id查找
     Questions findQuestionById(int id);
     //随机查找
     List<Questions> randomFindQuestion();

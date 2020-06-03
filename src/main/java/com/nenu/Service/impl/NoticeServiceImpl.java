@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-@Service("adminService")
+@Service("noticeService")
 @Transactional
 public class NoticeServiceImpl implements INoticeService {
 

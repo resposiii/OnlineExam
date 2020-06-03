@@ -17,6 +17,8 @@ public interface StudentDao {
     Student findByName(String studentName);
     //查找所有
     List<Student> findAll();
+    //根据id查找
+    Student findById(int studentID);
     //删除
     void deleteStudent(Integer studentID);
 }
