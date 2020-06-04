@@ -20,4 +20,9 @@ public class NoticeServiceImpl implements INoticeService {
     public List<Notice> findAllNotice() {
         return noticeDao.findAllNotice();
     }
+
+    @Override
+    public void addNotice(Notice notice) {
+        noticeDao.addNotice(notice);
+    }
 }

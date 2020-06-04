@@ -99,6 +99,15 @@ public class StudentController {
         return "notice";
     }
 
+
+    @RequestMapping("/updateStudent")
+    public String updateStudent(HttpServletRequest request,HttpSession session){
+        Student student= (Student) session.getAttribute("student");
+        iStudentService.updateStudent(student);
+        return null;
+    }
+
+
     @RequestMapping("/exam")
     public String exam(HttpSession session){
         List<Questions> questions = questionService.randomFindQuestion();

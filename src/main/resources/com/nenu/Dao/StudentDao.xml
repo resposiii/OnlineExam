@@ -33,7 +33,7 @@
     </delete>
 <!--    更新-->
     <update id="updateStudent" parameterType="com.nenu.domain.Student">
-        update Student set studentName=#{studentName},gender=#{gender},
+        update student set studentName=#{studentName},gender=#{gender},
         cardID=#{cardID},studentPassword=#{studentPassword} where
         studentID = #{studentID}
     </update>

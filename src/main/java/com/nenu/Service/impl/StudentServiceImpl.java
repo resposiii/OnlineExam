@@ -47,5 +47,10 @@ public class StudentServiceImpl implements IStudentService {
         return studentDao.findAll();
     }
 
+    @Override
+    public void updateStudent(Student student) {
+        studentDao.updateStudent(student);
+    }
+
 
 }

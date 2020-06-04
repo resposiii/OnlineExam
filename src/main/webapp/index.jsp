@@ -22,5 +22,6 @@
     <a href="a_login.jsp">管理员登录</a>
     <a href="student/score?studentID=2018001">成绩</a>
     <a href="student/exam">exam</a>
+    <a href="addTitle.jsp">addTitle</a>
 </body>
 </html>

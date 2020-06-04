@@ -21,4 +21,6 @@ public interface StudentDao {
     Student findById(int studentID);
     //删除
     void deleteStudent(Integer studentID);
+    //更新
+    void updateStudent(Student student);
 }

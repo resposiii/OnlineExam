@@ -17,4 +17,6 @@ public interface IStudentService {
     void deleteStudent(int studentID);
     //查找所有
     List<Student> findAll();
+    //更新
+    void updateStudent(Student student);
 }

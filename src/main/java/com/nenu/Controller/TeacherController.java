@@ -1,10 +1,10 @@
 package com.nenu.Controller;
 
+import com.nenu.Service.INoticeService;
+import com.nenu.Service.IQuestionService;
 import com.nenu.Service.IScoreService;
 import com.nenu.Service.ITeacherService;
-import com.nenu.domain.Score;
-import com.nenu.domain.Student;
-import com.nenu.domain.Teacher;
+import com.nenu.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -12,7 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -25,6 +29,12 @@ public class TeacherController {
 
     @Autowired
     private IScoreService scoreService;
+
+    @Autowired
+    private INoticeService noticeService;
+
+    @Autowired
+    private IQuestionService questionService;
 
     @RequestMapping(value = "/t_login")
     public ModelAndView login(String teacherName, String teacherPassword, ModelAndView mv, HttpSession session){
@@ -64,5 +74,32 @@ public class TeacherController {
         session.setAttribute("scores",scores);
         return "s_score";
     }
+
+    @RequestMapping("/findNotice")
+    public String findNotice(HttpSession session){
+        List<Notice> notices=noticeService.findAllNotice();
+        session.setAttribute("notices",notices);
+        return "notice";
+    }
+
+    @RequestMapping("/addNotice")
+    public String addNotice(HttpServletRequest request, HttpServletResponse response,Notice notice) throws ServletException, IOException {
+        if (notice.getTitle()!=""){
+            noticeService.addNotice(notice);
+            return "notice";
+        }
+        else {
+            request.setAttribute("error","公告不能为空");
+            return "error";
+        }
+    }
+
+    @RequestMapping("/addQuestion")
+    public  String addQuestion(Questions question){
+        questionService.addQuestion(question);
+//        return “redirect:findAllUser.do”;
+        return null;
+    }
+
 
 }

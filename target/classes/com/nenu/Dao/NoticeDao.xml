@@ -5,4 +5,8 @@
     <select id="findAllNotice" resultType="com.nenu.domain.Notice">
         select * from notice;
     </select>
+
+    <insert id="addNotice" parameterType="com.nenu.domain.Notice">
+        insert into notice (title) values (#{title})
+    </insert>
 </mapper>

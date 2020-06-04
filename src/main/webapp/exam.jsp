@@ -13,8 +13,10 @@
 </head>
 <body>
 <form action="getScore" method="post">
+    <%int i=1;%>
     <c:forEach items="${questions}" var="question">
-        <tr>${question.title}</tr>
+        <tr><%out.print(i++);%>
+                .(${question.subject})${question.title}</tr>
         <br/>
         <tr>
             <td><input type="radio"
