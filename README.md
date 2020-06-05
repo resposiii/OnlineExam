@@ -97,7 +97,6 @@
 | id      | int         | 是         | 否       | 主键ID |
 | Subject | varchar(50) | 否         | 否       | 科目   |
 | title   | varchar(50) | 否         | 否       | 题目   |
-| Chart   | varchar(50) | 否         | 否       | 章节   |
 | Type    | varchar(50) | 否         | 否       | 类型   |
 | ans1    | varchar(50) | 否         | 否       | A选项  |
 | ans2    | varchar(50) | 否         | 否       | B选项  |
@@ -112,9 +111,7 @@
 | cardID           | varchar(50) | 是         | 否       | 主键ID    |
 | studentID        | int         | 否         | 否       | 学号      |
 | studentName      | varchar(50) | 否         | 否       | 姓名      |
-| objectlvesScore  | int         | 否         | 否       | 客观题分数 |
-| subjectlvesScore | int         | 否         | 否       | 主观题分数 |
-| totalScore       | float       | 否         | 否       | 总分       |
+| score            | int       | 否         | 否       | 总分       |
 
 ### 6.notice
 
