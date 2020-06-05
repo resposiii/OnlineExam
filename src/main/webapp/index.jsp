@@ -23,5 +23,7 @@
     <a href="student/score?studentID=2018001">成绩</a>
     <a href="student/exam">exam</a>
     <a href="addTitle.jsp">addTitle</a>
+<br>
+    <a href="admin/findStudent">findStudent</a>
 </body>
 </html>

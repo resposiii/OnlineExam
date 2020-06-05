@@ -94,6 +94,13 @@ public class TeacherController {
         }
     }
 
+    @RequestMapping("/q_list")
+    public String findQuestion(HttpSession session){
+        List<Questions> questions = questionService.findAllQuestion();
+        session.setAttribute("questions",questions);
+        return null;
+    }
+
     @RequestMapping("/addQuestion")
     public  String addQuestion(Questions question){
         questionService.addQuestion(question);
