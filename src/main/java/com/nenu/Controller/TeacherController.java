@@ -21,7 +21,7 @@ import java.util.List;
 
 @Controller
 @Scope("prototype")
-@RequestMapping("/teacher")
+//@RequestMapping("/teacher")
 public class TeacherController {
 
     @Autowired
@@ -42,8 +42,17 @@ public class TeacherController {
         if (teacher!=null){
             //登录成功保存在session
             session.setAttribute("teacher",teacher);
+            //公告
+            List<Notice> notices = noticeService.findAllNotice();
+            session.setAttribute("notices",notices);
+            //问题
+            List<Questions> questions = questionService.findAllQuestion();
+            session.setAttribute("questions",questions);
+            //成绩信息
+            List<Score> scores = scoreService.findScore();
+            session.setAttribute("scores",scores);
             //跳转页面
-            mv.setViewName("success");
+            mv.setViewName("teacher");
         }
         else {
             //登录失败

@@ -19,7 +19,7 @@
         select * from student where studentName = #{studentName}
     </select>
     <!--    根据id查询-->
-    <select id="findById" parameterType="com.nenu.domain.Student">
+    <select id="findById" resultType="com.nenu.domain.Student">
         select * from student where studentID = #{studentID}
     </select>
     <!-- 新增学生 -->

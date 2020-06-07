@@ -42,6 +42,9 @@
 <h1 align="center">删除学生,成功!!!</h1>
         <%response.setHeader("refresh", "0,url=findStudent"); %>
 </c:when>
+<c:when test="${sessionScope.url=='/student' }">
+        <%response.setHeader("refresh", "0,url=student.jsp"); %>
+</c:when>
 
 </c:choose>
 </html>

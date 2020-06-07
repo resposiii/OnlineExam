@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
@@ -11,7 +12,8 @@
     <title>Title</title>
 </head>
 <body>
-    ${notice.title}
-    <a href="teacher/findNotice">确认发布</a>
+<c:forEach items="${notices}" var="notices">
+    ${notices.title}
+</c:forEach>
 </body>
 </html>

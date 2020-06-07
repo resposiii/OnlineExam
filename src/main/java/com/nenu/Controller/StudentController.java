@@ -23,7 +23,7 @@ import java.util.List;
 
 @Controller
 @Scope("prototype")
-@RequestMapping("/student")
+//@RequestMapping("/student")
 public class StudentController {
 
     @Autowired
@@ -45,6 +45,9 @@ public class StudentController {
         if (student!=null){
             //登录成功保存在session
             session.setAttribute("student",student);
+            List<Notice> notices = noticeService.findAllNotice();
+            session.setAttribute("notices",notices);
+            session.setAttribute("url","/student");
             //跳转页面
             mv.setViewName("success");
         }
@@ -89,7 +92,8 @@ public class StudentController {
     public String findScoreById(int studentID,HttpSession session){
         List<Score> scores = scoreService.findScoreById(studentID);
         session.setAttribute("scores",scores);
-        return "s_score";
+        session.setAttribute("url","/student");
+        return "success";
     }
 
     @RequestMapping("/notice")
@@ -100,11 +104,17 @@ public class StudentController {
     }
 
 
+    @RequestMapping("/beforeUpdateStudent")
+    public String beforeUpdateStudent(int studentID,HttpSession session){
+        Student student = iStudentService.findById(studentID);
+        session.setAttribute("student",student);
+        return "updateStudent";
+    }
+
     @RequestMapping("/updateStudent")
-    public String updateStudent(HttpServletRequest request,HttpSession session){
-        Student student= (Student) session.getAttribute("student");
+    public String updateStudent(Student student){
         iStudentService.updateStudent(student);
-        return null;
+        return "success";
     }
 
 
@@ -117,7 +127,18 @@ public class StudentController {
         }
         session.setAttribute("questions",questions);
         session.setAttribute("questionsIds",questionIds);
-        return "exam";
+        return "doExam";
+    }
+
+    @RequestMapping("/addScore")
+    public String addScore(String studentName,String cardID,int studentID,int scores){
+        Score score = new Score();
+        score.setStudentName(studentName);
+        score.setCardID(cardID);
+        score.setStudentID(studentID);
+        score.setScore(scores);
+        scoreService.addScore(score);
+        return "index";
     }
 
     @RequestMapping("/getScore")
@@ -143,9 +164,6 @@ public class StudentController {
             }
         }
         session.setAttribute("scores",scores);
-//        Score score = new Score();
-//        score.setScore(scores);
-//        scoreService.addScore(score);
         return "score";
     }
 

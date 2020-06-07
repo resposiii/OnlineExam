@@ -1,0 +1,20 @@
+.body{
+	width: 1100px;
+	height: 700px;
+	margin: auto;
+}
+.header{
+	background-color: black;
+	height: 8%;
+}
+.header h3{
+	color: white;
+	float: left;
+	margin-left: 4%;
+}
+.header p{
+	float: right;
+	margin-right: 4%;
+	margin-top: 2%;
+	color: white;
+}

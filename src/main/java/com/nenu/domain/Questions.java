@@ -11,7 +11,7 @@ public class Questions implements Serializable {
     private String subject;
     private String chart;
     private String title;
-    private String type;
+    private String types;
     private String ans1;
     private String ans2;
     private String ans3;
@@ -50,12 +50,12 @@ public class Questions implements Serializable {
         this.title = title;
     }
 
-    public String getType() {
-        return type;
+    public String getTypes() {
+        return types;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setTypes(String types) {
+        this.types = types;
     }
 
     public String getAns1() {
@@ -105,7 +105,7 @@ public class Questions implements Serializable {
                 ", subject='" + subject + '\'' +
                 ", chart='" + chart + '\'' +
                 ", title='" + title + '\'' +
-                ", type='" + type + '\'' +
+                ", type='" + types + '\'' +
                 ", ans1='" + ans1 + '\'' +
                 ", ans2='" + ans2 + '\'' +
                 ", ans3='" + ans3 + '\'' +
