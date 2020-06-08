@@ -22,12 +22,12 @@ public class TeacherServiceImpl implements ITeacherService {
     }
 
     @Override
-    public Teacher t_register(Teacher teacher) {
-        return teacherDao.addTeacher(teacher);
+    public void t_register(Teacher teacher) {
+        teacherDao.addTeacher(teacher);
     }
 
     @Override
-    public Teacher findByName(String teacherName) {
+    public List<Teacher> findByName(String teacherName) {
         return teacherDao.findByName(teacherName);
     }
 
@@ -39,5 +39,10 @@ public class TeacherServiceImpl implements ITeacherService {
     @Override
     public void deleteTeacher(Integer teacherID) {
         teacherDao.deleteTeacher(teacherID);
+    }
+
+    @Override
+    public void addTeacher(Teacher teacher) {
+        teacherDao.addTeacher(teacher);
     }
 }

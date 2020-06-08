@@ -25,7 +25,7 @@
         <h3></h3>
     </div>
     <div class="main">
-        <h2>Update</h2>
+        <h2>更新</h2>
         <br>
         <form action="updateStudent" method="post">
             <input type="hidden" name="studentID" value="${student.studentID }">

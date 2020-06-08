@@ -17,7 +17,7 @@
     </select>
     <!-- 新增学生 -->
     <insert id="addTeacher" parameterType="com.nenu.domain.Teacher">
-        insert into teacher (teacherName,gender，teacherPassword) values
+        insert into teacher (teacherName,gender,teacherPassword) values
          (#{teacherName},#{gender},#{teacherPassword});
      </insert>
     <!--删除教师-->

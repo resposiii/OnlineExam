@@ -38,10 +38,6 @@
 <%--<a href="/findStudent">5秒后跳转管理学生页面,如未点击跳转这里</a>--%>
 <%--        <%response.setHeader("refresh", "5,url=findStudent"); %>--%>
 <%--</c:when>--%>
-<c:when test="${sessionScope.url=='/deleteStudent' }">
-<h1 align="center">删除学生,成功!!!</h1>
-        <%response.setHeader("refresh", "0,url=findStudent"); %>
-</c:when>
 <c:when test="${sessionScope.url=='/updateQuestion' }">
 <h1 align="center">更新,成功!!!</h1>
         <a href="t_login?teacherName=${sessionScope.teacher.teacherName}
@@ -69,6 +65,50 @@
 <h1 align="center">添加公告,成功!!!</h1>
 <a href="t_login?teacherName=${sessionScope.teacher.teacherName}
         &teacherPassword=${sessionScope.teacher.teacherPassword}">返回</a>
+</c:when>
+<c:when test="${sessionScope.url=='/addQuestions' }">
+<h1 align="center">添加试题,成功!!!</h1>
+<a href="a_login?adminName=${sessionScope.admin.adminName}
+        &password=${sessionScope.admin.password}">返回</a>
+</c:when>
+<c:when test="${sessionScope.url=='/addNotices' }">
+<h1 align="center">添加公告,成功!!!</h1>
+<a href="a_login?adminName=${sessionScope.admin.adminName}
+        &password=${sessionScope.admin.password}">返回</a>
+</c:when>
+<c:when test="${sessionScope.url=='/addStudent' }">
+<h1 align="center">添加用户,成功!!!</h1>
+<a href="a_login?adminName=${sessionScope.admin.adminName}
+        &password=${sessionScope.admin.password}">返回</a>
+</c:when>
+<c:when test="${sessionScope.url=='/addTeacher' }">
+<h1 align="center">添加用户,成功!!!</h1>
+<a href="a_login?adminName=${sessionScope.admin.adminName}
+        &password=${sessionScope.admin.password}">返回</a>
+</c:when>
+
+<c:when test="${sessionScope.url=='/deleteStudent' }">
+<h1 align="center">删除用户,成功!!!</h1>
+<a href="a_login?adminName=${sessionScope.admin.adminName}
+        &password=${sessionScope.admin.password}">返回</a>
+</c:when>
+
+<c:when test="${sessionScope.url=='/deleteTeacher'}">
+<h1 align="center">删除用户,成功!!!</h1>
+<a href="a_login?adminName=${sessionScope.admin.adminName}
+        &password=${sessionScope.admin.password}">返回</a>
+</c:when>
+
+<c:when test="${sessionScope.url=='/deleteQuestions' }">
+<h1 align="center">删除,成功!!!</h1>
+<a href="a_login?adminName=${sessionScope.admin.adminName}
+        &password=${sessionScope.admin.password}">返回</a>
+</c:when>
+
+<c:when test="${sessionScope.url=='/deleteNotices'}">
+<h1 align="center">删除,成功!!!</h1>
+<a href="a_login?adminName=${sessionScope.admin.adminName}
+        &password=${sessionScope.admin.password}">返回</a>
 </c:when>
 </c:choose>
 </html>

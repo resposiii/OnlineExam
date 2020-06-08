@@ -14,7 +14,7 @@ public interface StudentDao {
     //增加学生
     void addStudent(Student student);
     //根据学生名查找
-    Student findByName(String studentName);
+    List<Student> findByName(String studentName);
     //查找所有
     List<Student> findAll();
     //根据id查找

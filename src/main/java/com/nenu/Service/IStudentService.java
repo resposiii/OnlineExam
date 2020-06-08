@@ -10,7 +10,7 @@ public interface IStudentService {
     //注册
     void s_register(Student student);
     //根据用户名查找
-    Student findByName(String studentName);
+    List<Student> findByName(String studentName);
     //根据id查找
     Student findById(int studentID);
     //删除
@@ -19,4 +19,5 @@ public interface IStudentService {
     List<Student> findAll();
     //更新
     void updateStudent(Student student);
+    void addStudent(Student student);
 }

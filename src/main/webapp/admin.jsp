@@ -89,11 +89,13 @@
             <div role="tabpanel" class="tab-pane active" id="student">
                 <div class="check-div form-inline">
                     <div class="col-xs-3">
-                        <button class="btn btn-yellow btn-xs" data-toggle="modal" data-target="#addUser">添加用户 </button>
+                        <button class="btn btn-yellow btn-xs" data-toggle="modal" data-target="#addStudent">添加用户</button>
                     </div>
                     <div class="col-xs-4">
-                        <input type="text" class="form-control input-sm" placeholder="输入文字搜索">
-                        <button class="btn btn-white btn-xs ">查 询 </button>
+                        <form action="findByName" method="post">
+                            <input type="text" class="form-control input-sm" name="studentName" placeholder="输入姓名搜索">
+                            <button class="btn btn-white btn-xs " type="submit">查 询 </button>
+                        </form>
                     </div>
                 </div>
                 <div class="data-div">
@@ -137,7 +139,7 @@
                                 </div>
                                 <div class="col-xs-2">
                                     <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#reviseUser">修改</button>
-                                    <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteUser">删除</button>
+                                    <a class="btn btn-danger btn-xs" href="deleteStudent?studentID=${students.studentID}">删除</a>
                                 </div>
                             </div>
                         </c:forEach>
@@ -146,76 +148,51 @@
                     <!--页码块-->
 
                     <!--弹出添加用户窗口-->
-                    <div class="modal fade" id="addUser" role="dialog" aria-labelledby="gridSystemModalLabel">
+                    <div class="modal fade" id="addStudent" role="dialog" aria-labelledby="gridSystemModalLabel">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                     <h4 class="modal-title" id="gridSystemModalLabel">添加用户</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                 </div>
                                 <div class="modal-body">
                                     <div class="container-fluid">
-                                        <form class="form-horizontal">
+                                        <form class="form-horizontal" action="addStudent" method="post">
                                             <div class="form-group ">
-                                                <label for="sName" class="col-xs-3 control-label">用户名：</label>
+                                                <label for="sName" class="col-xs-3 control-label">姓名：</label>
                                                 <div class="col-xs-8 ">
-                                                    <input type="email" class="form-control input-sm duiqi" id="sName" placeholder="">
+                                                    <input type="" class="form-control input-sm duiqi" id="sName" name="studentName">
                                                 </div>
                                             </div>
+                                            <div class="form-check">
+                                                <label>性别</label><br>
+                                                <label class="form-radio-label">
+                                                    <input class="form-radio-input" type="radio" name="gender" value="男">
+                                                    <span class="form-radio-sign">男</span>
+                                                </label>
+                                                <label class="form-radio-label ml-3">
+                                                    <input class="form-radio-input" type="radio" name="gender" value="女">
+                                                    <span class="form-radio-sign">女</span>
+                                                </label>
+                                            </div>
                                             <div class="form-group">
-                                                <label for="sLink" class="col-xs-3 control-label">真实姓名：</label>
+                                                <label for="sLink" class="col-xs-3 control-label">身份证号：</label>
                                                 <div class="col-xs-8 ">
-                                                    <input type="" class="form-control input-sm duiqi" id="sLink" placeholder="">
+                                                    <input type="" class="form-control input-sm duiqi" id="sLink" name="cardID">
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="sOrd" class="col-xs-3 control-label">电子邮箱：</label>
+                                                <label for="sOrd" class="col-xs-3 control-label">密码：</label>
                                                 <div class="col-xs-8">
-                                                    <input type="" class="form-control input-sm duiqi" id="sOrd" placeholder="">
+                                                    <input type="" class="form-control input-sm duiqi" id="sOrd" name="studentPassword">
                                                 </div>
                                             </div>
-                                            <div class="form-group">
-                                                <label for="sKnot" class="col-xs-3 control-label">电话：</label>
-                                                <div class="col-xs-8">
-                                                    <input type="" class="form-control input-sm duiqi" id="sKnot" placeholder="">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="sKnot" class="col-xs-3 control-label">年级：</label>
-                                                <div class="col-xs-8">
-                                                    <select class=" form-control select-duiqi">
-                                                        <option value="">大一</option>
-                                                        <option value="">大二</option>
-                                                        <option value="">大三</option>
-                                                        <option value="">大四</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="sKnot" class="col-xs-3 control-label">身份：</label>
-                                                <div class="col-xs-8">
-                                                    <select class=" form-control select-duiqi">
-                                                        <option value="">管理员</option>
-                                                        <option value="">教师</option>
-                                                        <option value="">学生</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="situation" class="col-xs-3 control-label">状态：</label>
-                                                <div class="col-xs-8">
-                                                    <label class="control-label" for="anniu">
-                                                        <input type="radio" name="situation" id="normal">正常</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    <label class="control-label" for="meun">
-                                                        <input type="radio" name="situation" id="forbid"> 禁用</label>
-                                                </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
+                                                <button type="submit" class="btn btn-xs btn-green">保 存</button>
                                             </div>
                                         </form>
                                     </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
-                                    <button type="button" class="btn btn-xs btn-green">保 存</button>
                                 </div>
                             </div>
                             <!-- /.modal-content -->
@@ -235,11 +212,13 @@
             <div role="tabpanel" class="tab-pane" id="teacher">
                 <div class="check-div form-inline">
                     <div class="col-xs-3">
-                        <button class="btn btn-yellow btn-xs" data-toggle="modal" data-target="#addUser">添加用户 </button>
+                        <button class="btn btn-yellow btn-xs" data-toggle="modal" data-target="#addTeacher">添加用户 </button>
                     </div>
                     <div class="col-xs-4">
-                        <input type="text" class="form-control input-sm" placeholder="输入文字搜索">
-                        <button class="btn btn-white btn-xs ">查 询 </button>
+                        <form action="findTeacherByName" method="post">
+                            <input type="text" class="form-control input-sm" name="teacherName" placeholder="输入姓名搜索">
+                            <button class="btn btn-white btn-xs " type="submit">查 询 </button>
+                        </form>
                     </div>
                 </div>
                 <div class="data-div">
@@ -283,7 +262,7 @@
                                 </div>
                                 <div class="col-xs-2">
                                     <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#reviseUser">修改</button>
-                                    <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteUser">删除</button>
+                                    <a class="btn btn-danger btn-xs" data-toggle="modal" href="deleteTeacher?teacherID=${teachers.teacherID}">删除</a>
                                 </div>
                             </div>
                         </c:forEach>
@@ -292,76 +271,45 @@
                 <!--页码块-->
 
                 <!--弹出添加用户窗口-->
-                <div class="modal fade" id="addUser" role="dialog" aria-labelledby="gridSystemModalLabel">
+                <div class="modal fade" id="addTeacher" role="dialog" aria-labelledby="gridSystemModalLabel">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                 <h4 class="modal-title" id="gridSystemModalLabel">添加用户</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                             </div>
                             <div class="modal-body">
                                 <div class="container-fluid">
-                                    <form class="form-horizontal">
+                                    <form class="form-horizontal" method="post" action="addTeacher">
                                         <div class="form-group ">
                                             <label for="sName" class="col-xs-3 control-label">用户名：</label>
                                             <div class="col-xs-8 ">
-                                                <input type="email" class="form-control input-sm duiqi" id="sName" placeholder="">
+                                                <input type="" class="form-control input-sm duiqi" id="sName" name="teacherName">
                                             </div>
                                         </div>
+                                        <div class="form-check">
+                                            <label>性别</label><br>
+                                            <label class="form-radio-label">
+                                                <input class="form-radio-input" type="radio" name="gender" value="男">
+                                                <span class="form-radio-sign">男</span>
+                                            </label>
+                                            <label class="form-radio-label ml-3">
+                                                <input class="form-radio-input" type="radio" name="gender" value="女">
+                                                <span class="form-radio-sign">女</span>
+                                            </label>
+                                        </div>
                                         <div class="form-group">
-                                            <label for="sLink" class="col-xs-3 control-label">真实姓名：</label>
+                                            <label for="sLink" class="col-xs-3 control-label">密码：</label>
                                             <div class="col-xs-8 ">
-                                                <input type="" class="form-control input-sm duiqi" id="sLink" placeholder="">
+                                                <input type="" class="form-control input-sm duiqi" id="sLink" name="teacherPassword">
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="sOrd" class="col-xs-3 control-label">电子邮箱：</label>
-                                            <div class="col-xs-8">
-                                                <input type="" class="form-control input-sm duiqi" id="sOrd" placeholder="">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="sKnot" class="col-xs-3 control-label">电话：</label>
-                                            <div class="col-xs-8">
-                                                <input type="" class="form-control input-sm duiqi" id="sKnot" placeholder="">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="sKnot" class="col-xs-3 control-label">年级：</label>
-                                            <div class="col-xs-8">
-                                                <select class=" form-control select-duiqi">
-                                                    <option value="">大一</option>
-                                                    <option value="">大二</option>
-                                                    <option value="">大三</option>
-                                                    <option value="">大四</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="sKnot" class="col-xs-3 control-label">身份：</label>
-                                            <div class="col-xs-8">
-                                                <select class=" form-control select-duiqi">
-                                                    <option value="">管理员</option>
-                                                    <option value="">教师</option>
-                                                    <option value="">学生</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="situation" class="col-xs-3 control-label">状态：</label>
-                                            <div class="col-xs-8">
-                                                <label class="control-label" for="anniu">
-                                                    <input type="radio" name="situation" id="normal">正常</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                <label class="control-label" for="meun">
-                                                    <input type="radio" name="situation" id="forbid"> 禁用</label>
-                                            </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
+                                            <button type="submit" class="btn btn-xs btn-green">保 存</button>
                                         </div>
                                     </form>
                                 </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
-                                <button type="button" class="btn btn-xs btn-green">保 存</button>
                             </div>
                         </div>
                         <!-- /.modal-content -->
@@ -456,7 +404,7 @@
                                     </div>
                                     <div class="col-xs-2">
                                         <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#reviseUser">修改</button>
-                                        <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteUser">删除</button>
+                                        <a class="btn btn-danger btn-xs" data-toggle="modal" href="deleteQuestions?id=${questions.id}">删除</a>
                                     </div>
                                 </div>
                             </c:forEach>
@@ -465,56 +413,85 @@
                     <!--页码块-->
 
                     <!--弹出添加试卷窗口-->
-                    <div class="modal fade" id="addSchool" role="dialog" aria-labelledby="gridSystemModalLabel">
-                        <div class="modal-dialog" role="document">
+                    <div class="modal fade" id="addSchool" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <h4 class="modal-title" id="gridSystemModalLabel">添加试卷</h4>
+                                    <h4 class="modal-title" id="myModalLabel">添加试题</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                 </div>
                                 <div class="modal-body">
-                                    <div class="container-fluid">
-                                        <form class="form-horizontal">
-                                            <div class="form-group ">
-                                                <label for="sName" class="col-xs-3 control-label">试卷名称：</label>
-                                                <div class="col-xs-8 ">
-                                                    <input type="email" class="form-control input-sm duiqi" id="sName" placeholder="">
-                                                </div>
+                                    <form class="form-horizontal" method="post" action="addQuestions">
+                                        <div class="form-group">
+                                            <label for="subjectTitle" class="col-sm-2 control-label">题目</label>
+                                            <div class="col-sm-4">
+                                                <input class="form-control" name="title" placeholder="题目"
+                                                       id="subjectTitle">
                                             </div>
-                                            <div class="form-group ">
-                                                <label for="sName" class="col-xs-3 control-label">考试时长：</label>
-                                                <div class="col-xs-8 ">
-                                                    <input type="email" class="form-control input-sm duiqi" id="sName" placeholder="">
-                                                </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="subjectTitle" class="col-sm-2 control-label">学科</label>
+                                            <div class="col-sm-4">
+                                                <input class="form-control" name="subject" placeholder="学科"
+                                                       id="subjectTitle">
                                             </div>
-                                            <div class="form-group">
-                                                <label for="sLink" class="col-xs-3 control-label">参考人数：</label>
-                                                <div class="col-xs-8 ">
-                                                    <input type="" class="form-control input-sm duiqi" id="sLink" placeholder="">
-                                                </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="subjectOptionA" class="col-sm-2 control-label">选项A</label>
+                                            <div class="col-sm-3">
+                                                <input class="form-control" name="ans1" placeholder="A"
+                                                       id="subjectOptionA">
                                             </div>
-                                            <div class="form-group">
-                                                <label for="sOrd" class="col-xs-3 control-label">备注：</label>
-                                                <div class="col-xs-8">
-                                                    <input type="" class="form-control input-sm duiqi" id="sOrd" placeholder="">
-                                                </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="subjectOptionB" class="col-sm-2 control-label">选项B</label>
+                                            <div class="col-sm-3">
+                                                <input class="form-control" name="ans2" placeholder="B"
+                                                       id="subjectOptionB">
                                             </div>
-                                        </form>
-                                    </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="subjectOptionC" class="col-sm-2 control-label">选项C</label>
+                                            <div class="col-sm-3">
+                                                <input class="form-control" name="ans3" placeholder="C"
+                                                       id="subjectOptionC">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="subjectOptionD" class="col-sm-2 control-label">选项D</label>
+                                            <div class="col-sm-3">
+                                                <input class="form-control" name="ans4" placeholder="D"
+                                                       id="subjectOptionD">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">类型</label> <label
+                                                class="radio-inline"> <input type="radio"
+                                                                             name="types" checked="checked" id="inlineRadio1" value="选择">选择
+                                        </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">答案</label> <label
+                                                class="radio-inline"> <input type="radio"
+                                                                             name="answer" id="inlineRadio1" value="A"> A
+                                        </label> <label class="radio-inline"> <input type="radio"
+                                                                                     name="answer" id="inlineRadio2" value="B"> B
+                                        </label> <label class="radio-inline"> <input type="radio"
+                                                                                     name="answer" id="inlineRadio3" value="C"> C
+                                        </label> <label class="radio-inline"> <input type="radio"
+                                                                                     name="answer" id="inlineRadio3" value="D"> D
+                                        </label>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                            <button type="submit" class="btn btn-primary">提交更改</button>
+                                        </div>
+                                    </form>
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
-                                    <button type="button" class="btn btn-xs btn-green">保 存</button>
-                                </div>
-                            </div>
-                            <!-- /.modal-content -->
-                        </div>
-                        <!-- /.modal-dialog -->
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal -->
                     </div>
                     <!-- /.modal -->
-
-
-
                 </div>
                 <!--公告管理模块-->
                 <div role="tabpanel" class="tab-pane" id="notice">
@@ -543,7 +520,7 @@
                                             ${notices.title}
                                     </div>
                                     <div class="col-xs-2">
-                                        <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteUser">删除</button>
+                                        <a class="btn btn-danger btn-xs" data-toggle="modal" href="deleteNotices?id=${notices.id}">删除</a>
                                     </div>
                                 </div>
                             </c:forEach>

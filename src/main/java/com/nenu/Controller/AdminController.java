@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -100,10 +103,96 @@ public class AdminController {
 //        return null;
 //    }
 
+    @RequestMapping("/addStudent")
+    public String addStudent(Student student,HttpSession session){
+        if (student==null){
+            return "error";
+        }
+        else {
+            studentService.addStudent(student);
+            session.setAttribute("url","/addStudent");
+            return "success";
+        }
+    }
+
+    @RequestMapping("/addTeacher")
+    public String addTeacher(Teacher teacher,HttpSession session){
+        if (teacher==null){
+            return "error";
+        }
+        else {
+            teacherService.addTeacher(teacher);
+            session.setAttribute("url","/addTeacher");
+            return "success";
+        }
+    }
+
+    @RequestMapping("/addQuestions")
+    public String addQuestion(Questions question,HttpSession session){
+        if (question==null){
+            return "error";
+        }
+        else{
+            questionService.addQuestion(question);
+            session.setAttribute("url","/addQuestions");
+//        return “redirect:findAllUser.do”;
+            return "success";
+        }
+    }
+
+    @RequestMapping("/addNotices")
+    public String addNotice(HttpServletRequest request, HttpSession session, Notice notice) throws ServletException, IOException {
+        if (!notice.getTitle().equals("")){
+            session.setAttribute("url","/addNotices");
+            noticeService.addNotice(notice);
+            return "success";
+        }
+        else {
+            request.setAttribute("error","公告不能为空");
+            return "error";
+        }
+    }
+
+    @RequestMapping("/findStudentByName")
+    public String findStudentByName(String studentName,HttpSession session){
+        List<Student> students = studentService.findByName(studentName);
+        session.setAttribute("students",students);
+        return "admin";
+    }
+
+    @RequestMapping("/findTeacherByName")
+    public String findTeacherByName(String teacherName,HttpSession session){
+        List<Teacher> teachers = teacherService.findByName(teacherName);
+        session.setAttribute("teachers",teachers);
+        return "admin";
+    }
+
+
     @RequestMapping("/deleteStudent")
-    public String deleteStudent(HttpSession session,int studentID){
+    public String deleteStudent(int studentID,HttpSession session){
         studentService.deleteStudent(studentID);
         session.setAttribute("url","/deleteStudent");
+        return "success";
+    }
+
+    @RequestMapping("/deleteTeacher")
+    public String deleteTeacher(int teacherID,HttpSession session){
+        teacherService.deleteTeacher(teacherID);
+        session.setAttribute("url","/deleteTeacher");
+        return "success";
+    }
+
+    @RequestMapping("/deleteQuestions")
+    public String deleteQuestions(int id,HttpSession session){
+        questionService.deleteQuestion(id);
+        session.setAttribute("url","/deleteQuestions");
+        return "success";
+    }
+
+    @RequestMapping("/deleteNotices")
+    public String deleteNotices(int id,HttpSession session){
+        noticeService.deleteNotice(id);
+        session.setAttribute("url","/deleteNotices");
         return "success";
     }
 

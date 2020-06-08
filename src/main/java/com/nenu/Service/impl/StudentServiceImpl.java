@@ -27,7 +27,7 @@ public class StudentServiceImpl implements IStudentService {
     }
 
     @Override
-    public Student findByName(String studentName) {
+    public List<Student> findByName(String studentName) {
         return studentDao.findByName(studentName);
     }
 
@@ -49,6 +49,11 @@ public class StudentServiceImpl implements IStudentService {
     @Override
     public void updateStudent(Student student) {
         studentDao.updateStudent(student);
+    }
+
+    @Override
+    public void addStudent(Student student) {
+        studentDao.addStudent(student);
     }
 
 
