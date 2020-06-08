@@ -25,4 +25,9 @@ public class NoticeServiceImpl implements INoticeService {
     public void addNotice(Notice notice) {
         noticeDao.addNotice(notice);
     }
+
+    @Override
+    public void deleteNotice(int id) {
+        noticeDao.deleteNotice(id);
+    }
 }

@@ -4,9 +4,9 @@
 <mapper namespace="com.nenu.Dao.QuestionsDao">
 <!--    增加题目-->
     <insert id="addQuestion" parameterType="com.nenu.domain.Questions">
-        insert into questions (subject,chart,title,types,ans1,ans2,ans3,ans4,answer)
+        insert into questions (subject,title,types,ans1,ans2,ans3,ans4,answer)
          values
-         (#{subject},#{chart},#{title},#{types},#{ans1},#{ans2},#{ans3},#{ans4},#{answer});
+         (#{subject},#{title},#{types},#{ans1},#{ans2},#{ans3},#{ans4},#{answer});
      </insert>
 <!--    删除-->
     <delete id="deleteQuestion" parameterType="com.nenu.domain.Questions">
@@ -30,8 +30,8 @@
 	</select>
 <!--    更新-->
     <update id="updateQuestion" parameterType="com.nenu.domain.Questions">
-        update questions set subject=#{subject},chart=#{chart},
+        update questions set subject=#{subject},
         title=#{title},types=#{types},ans1=#{ans1},ans2=#{ans2},
-        ans3=#{ans3},ans4=#{ans4},answer=#{answer}
+        ans3=#{ans3},ans4=#{ans4},answer=#{answer} where id=#{id}
     </update>
 </mapper>

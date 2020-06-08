@@ -43,7 +43,6 @@ public class StudentServiceImpl implements IStudentService {
 
     @Override
     public List<Student> findAll() {
-        System.out.println("find All......");
         return studentDao.findAll();
     }
 

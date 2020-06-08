@@ -77,25 +77,26 @@ public class TeacherController {
         }
     }
 
-    @RequestMapping("/findScore")
-    public String findScore(HttpSession session){
-        List<Score> scores = scoreService.findScore();
-        session.setAttribute("scores",scores);
-        return "s_score";
-    }
-
-    @RequestMapping("/findNotice")
-    public String findNotice(HttpSession session){
-        List<Notice> notices=noticeService.findAllNotice();
-        session.setAttribute("notices",notices);
-        return "notice";
-    }
+//    @RequestMapping("/findScore")
+//    public String findScore(HttpSession session){
+//        List<Score> scores = scoreService.findScore();
+//        session.setAttribute("scores",scores);
+//        return "s_score";
+//    }
+//
+//    @RequestMapping("/findNotice")
+//    public String findNotice(HttpSession session){
+//        List<Notice> notices=noticeService.findAllNotice();
+//        session.setAttribute("notices",notices);
+//        return "notice";
+//    }
 
     @RequestMapping("/addNotice")
-    public String addNotice(HttpServletRequest request, HttpServletResponse response,Notice notice) throws ServletException, IOException {
-        if (notice.getTitle()!=""){
+    public String addNotice(HttpServletRequest request,HttpSession session,Notice notice) throws ServletException, IOException {
+        if (!notice.getTitle().equals("")){
+            session.setAttribute("url","/addNotice");
             noticeService.addNotice(notice);
-            return "notice";
+            return "success";
         }
         else {
             request.setAttribute("error","公告不能为空");
@@ -103,18 +104,63 @@ public class TeacherController {
         }
     }
 
-    @RequestMapping("/q_list")
-    public String findQuestion(HttpSession session){
-        List<Questions> questions = questionService.findAllQuestion();
-        session.setAttribute("questions",questions);
-        return null;
+
+
+    @RequestMapping("/beforeUpdateQuestion")
+    public String beforeUpdateQuestion(int id,HttpSession session){
+        Questions question = questionService.findQuestionById(id);
+        session.setAttribute("question",question);
+        return "updateQuestion";
+    }
+
+
+    @RequestMapping("/deleteQuestion")
+    public String deleteQuestion(int id,HttpSession session){
+        questionService.deleteQuestion(id);
+        session.setAttribute("url","/deleteQuestion");
+        return "success";
+    }
+
+    @RequestMapping("/deleteNotice")
+    public String deleteNotice(int id,HttpSession session){
+        noticeService.deleteNotice(id);
+        session.setAttribute("url","/deleteNotice");
+        return "success";
+    }
+
+    @RequestMapping("/updateQuestion")
+    public String updateQuestion(Questions question,HttpSession session){
+        questionService.updateQuestion(question);
+        session.setAttribute("url","/updateQuestion");
+        return "success";
+    }
+
+//    @RequestMapping("/q_list")
+//    public String findQuestion(HttpSession session){
+//        List<Questions> questions = questionService.findAllQuestion();
+//        session.setAttribute("questions",questions);
+//        return null;
+//    }
+
+
+    @RequestMapping("/findScoreById")
+    public String findScoreById(int studentID,HttpSession session){
+        List<Score> scores = scoreService.findScoreById(studentID);
+        session.setAttribute("scores",scores);
+        return "teacher";
     }
 
     @RequestMapping("/addQuestion")
-    public  String addQuestion(Questions question){
-        questionService.addQuestion(question);
+    public  String addQuestion(Questions question,HttpSession session){
+        if (question==null){
+            return "error";
+        }
+        else{
+            questionService.addQuestion(question);
+            session.setAttribute("url","/addQuestion");
 //        return “redirect:findAllUser.do”;
-        return null;
+            return "success";
+        }
     }
 
 

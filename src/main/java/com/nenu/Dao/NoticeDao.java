@@ -10,4 +10,5 @@ public interface NoticeDao {
 
     void addNotice(Notice notice);
 
+    void deleteNotice(int id);
 }

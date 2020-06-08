@@ -25,21 +25,15 @@
             <div class="main-panel">
                 <div class="content">
                     <div class="container">
-                        <h4 class="page-title">学生注册页面</h4>
-                        <form method="post" action="s_register">
+                        <h4 class="page-title">教师注册页面</h4>
+                        <form method="post" action="t_register">
                             <div class="col-md-8">
                                 <div class="card">
                                     <div class="card-body">
 
                                         <div class="form-group">
                                             <label for="name">账号</label>
-                                            <input type="text" class="form-control" required name="studentName" id="name" placeholder="请输入你的姓名">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="name">身份证号</label>
-                                            <input type="text" class="form-control" required name="cardID" id="account" placeholder="请输入你的身份证号">
-                                            <small id="accounthelp" class="form-text text-muted"></small>
+                                            <input type="text" class="form-control" required name="teacherName" id="name" placeholder="请输入你的姓名">
                                         </div>
 
                                         <div class="form-check">
@@ -56,7 +50,7 @@
 
                                         <div class="form-group">
                                             <label for="studentPassword">密码</label>
-                                            <input type="password" class="form-control" required id="studentPassword" name="studentPassword" placeholder="">
+                                            <input type="password" class="form-control" required id="studentPassword" name="teacherPassword" placeholder="">
                                         </div>
                                     </div>
 

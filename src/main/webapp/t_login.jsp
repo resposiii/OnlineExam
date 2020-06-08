@@ -22,7 +22,7 @@
 <div class="page-header">
     <div class="row">
         <div class="col-lg-8">
-            <h1>在线考试系统    <small>考试愉快</small></h1>
+            <h1>在线考试系统|教师    <small>考试愉快</small></h1>
         </div>
         <div class="col-md-2">
             <div class="form-group input-group input-group-lg">
@@ -31,7 +31,7 @@
         </div>
         <div class="col-md-2">
             <div class="form-group input-group input-group-lg">
-                <a href=""><button class="btn btn-lg btn-danger" type="submit">切换后台登录</button></a>
+                <a href="a_login.jsp"><button class="btn btn-lg btn-danger" type="submit">切换后台登录</button></a>
             </div>
         </div>
     </div>

@@ -9,4 +9,8 @@
     <insert id="addNotice" parameterType="com.nenu.domain.Notice">
         insert into notice (title) values (#{title})
     </insert>
+
+    <delete id="deleteNotice" parameterType="com.nenu.domain.Notice">
+        delete from notice where id = #{id};
+    </delete>
 </mapper>

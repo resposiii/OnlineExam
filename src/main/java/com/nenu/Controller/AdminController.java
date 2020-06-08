@@ -14,7 +14,7 @@ import java.util.List;
 
 @Controller
 @Scope("prototype")
-@RequestMapping("/admin")
+//@RequestMapping("/admin")
 public class AdminController {
 
     @Autowired
@@ -41,8 +41,20 @@ public class AdminController {
         if (admin!=null){
             //登录成功保存在session
             session.setAttribute("admin",admin);
+            //学生
+            List<Student> students = studentService.findAll();
+            session.setAttribute("students",students);
+            //教师
+            List<Teacher> teachers = teacherService.findAll();
+            session.setAttribute("teachers",teachers);
+            //问题
+            List<Questions> questions = questionService.findAllQuestion();
+            session.setAttribute("questions",questions);
+            //公告
+            List<Notice> notices = noticeService.findAllNotice();
+            session.setAttribute("notices",notices);
             //跳转页面
-            mv.setViewName("success");
+            mv.setViewName("admin");
         }
         else {
             //登录失败
@@ -53,40 +65,40 @@ public class AdminController {
         return mv;
     }
 
-    @RequestMapping("/findTeacher")
-    public String findTeacher(HttpSession session){
-        List<Teacher> teachers = teacherService.findAll();
-        session.setAttribute("teachers",teachers);
-        return "t_list";
-    }
+//    @RequestMapping("/findTeacher")
+//    public String findTeacher(HttpSession session){
+//        List<Teacher> teachers = teacherService.findAll();
+//        session.setAttribute("teachers",teachers);
+//        return "t_list";
+//    }
+//
+//    @RequestMapping("/findStudent")
+//    public String findStudent(HttpSession session){
+//        List<Student> students = studentService.findAll();
+//        session.setAttribute("students",students);
+//        return "s_list";
+//    }
 
-    @RequestMapping("/findStudent")
-    public String findStudent(HttpSession session){
-        List<Student> students = studentService.findAll();
-        session.setAttribute("students",students);
-        return "s_list";
-    }
-
-    @RequestMapping("/findScore")
-    public String findScore(HttpSession session){
-        List<Score> scores = scoreService.findScore();
-        session.setAttribute("scores",scores);
-        return "s_score";
-    }
-
-    @RequestMapping("/findNotice")
-    public String findNotice(HttpSession session){
-        List<Notice> notices=noticeService.findAllNotice();
-        session.setAttribute("notices",notices);
-        return "notice";
-    }
-
-    @RequestMapping("/findQuestion")
-    public String findQuestion(HttpSession session){
-        List<Questions> questions = questionService.findAllQuestion();
-        session.setAttribute("questions",questions);
-        return null;
-    }
+//    @RequestMapping("/findScore")
+//    public String findScore(HttpSession session){
+//        List<Score> scores = scoreService.findScore();
+//        session.setAttribute("scores",scores);
+//        return "s_score";
+//    }
+//
+//    @RequestMapping("/findNotice")
+//    public String findNotice(HttpSession session){
+//        List<Notice> notices=noticeService.findAllNotice();
+//        session.setAttribute("notices",notices);
+//        return "notice";
+//    }
+//
+//    @RequestMapping("/findQuestion")
+//    public String findQuestion(HttpSession session){
+//        List<Questions> questions = questionService.findAllQuestion();
+//        session.setAttribute("questions",questions);
+//        return null;
+//    }
 
     @RequestMapping("/deleteStudent")
     public String deleteStudent(HttpSession session,int studentID){
@@ -95,12 +107,12 @@ public class AdminController {
         return "success";
     }
 
-    @RequestMapping("/updateStudent")
-    public String updateStudent(HttpSession session,int studentID){
-        Student student = studentService.findById(studentID);
-        studentService.updateStudent(student);
-        session.setAttribute("url","/updateStudent");
-        return "success";
-    }
+//    @RequestMapping("/updateStudents")
+//    public String updateStudent(HttpSession session,int studentID){
+//        Student student = studentService.findById(studentID);
+//        studentService.updateStudent(student);
+//        session.setAttribute("url","/updateStudent");
+//        return "success";
+//    }
 
 }

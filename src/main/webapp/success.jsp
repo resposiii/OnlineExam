@@ -42,9 +42,33 @@
 <h1 align="center">删除学生,成功!!!</h1>
         <%response.setHeader("refresh", "0,url=findStudent"); %>
 </c:when>
+<c:when test="${sessionScope.url=='/updateQuestion' }">
+<h1 align="center">更新,成功!!!</h1>
+        <a href="t_login?teacherName=${sessionScope.teacher.teacherName}
+        &teacherPassword=${sessionScope.teacher.teacherPassword}">返回</a>
+</c:when>
+<c:when test="${sessionScope.url=='/deleteQuestion' }">
+<h1 align="center">删除,成功!!!</h1>
+<a href="t_login?teacherName=${sessionScope.teacher.teacherName}
+        &teacherPassword=${sessionScope.teacher.teacherPassword}">返回</a>
+</c:when>
+<c:when test="${sessionScope.url=='/deleteNotice' }">
+<h1 align="center">删除公告,成功!!!</h1>
+<a href="t_login?teacherName=${sessionScope.teacher.teacherName}
+        &teacherPassword=${sessionScope.teacher.teacherPassword}">返回</a>
+</c:when>
 <c:when test="${sessionScope.url=='/student' }">
         <%response.setHeader("refresh", "0,url=student.jsp"); %>
 </c:when>
-
+<c:when test="${sessionScope.url=='/addQuestion' }">
+<h1 align="center">添加试题,成功!!!</h1>
+        <a href="t_login?teacherName=${sessionScope.teacher.teacherName}
+        &teacherPassword=${sessionScope.teacher.teacherPassword}">返回</a>
+</c:when>
+<c:when test="${sessionScope.url=='/addNotice' }">
+<h1 align="center">添加公告,成功!!!</h1>
+<a href="t_login?teacherName=${sessionScope.teacher.teacherName}
+        &teacherPassword=${sessionScope.teacher.teacherPassword}">返回</a>
+</c:when>
 </c:choose>
 </html>

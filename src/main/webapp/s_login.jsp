@@ -31,7 +31,7 @@
         </div>
         <div class="col-md-2">
             <div class="form-group input-group input-group-lg">
-                <a ><button class="btn btn-lg btn-danger" type="submit">切换后台登录</button></a>
+                <a href="a_login.jsp"><button class="btn btn-lg btn-danger" type="submit">切换后台登录</button></a>
             </div>
         </div>
     </div>
