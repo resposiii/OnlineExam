@@ -196,6 +196,34 @@ public class AdminController {
         return "success";
     }
 
+    @RequestMapping("/beforeUpdateStudents")
+    public String beforeUpdateStudents(int studentID,HttpSession session){
+        Student student = studentService.findById(studentID);
+        session.setAttribute("student",student);
+        return "updateStudents";
+    }
+
+    @RequestMapping("/updateStudents")
+    public String updateStudents(Student student,HttpSession session){
+        session.setAttribute("url","/updateStudents");
+        studentService.updateStudent(student);
+        return "success";
+    }
+
+
+    @RequestMapping("/beforeUpdateTeacher")
+    public String beforeUpdateTeacher(int teacherID,HttpSession session){
+        Teacher teacher = teacherService.findById(teacherID);
+        session.setAttribute("teacher",teacher);
+        return "updateTeacher";
+    }
+
+    @RequestMapping("/updateTeacher")
+    public String updateTeacher(Teacher teacher,HttpSession session){
+        session.setAttribute("url","/updateTeacher");
+        teacherService.updateTeacher(teacher);
+        return "success";
+    }
 //    @RequestMapping("/updateStudents")
 //    public String updateStudent(HttpSession session,int studentID){
 //        Student student = studentService.findById(studentID);

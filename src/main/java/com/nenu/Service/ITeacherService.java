@@ -17,4 +17,8 @@ public interface ITeacherService {
     void deleteTeacher(Integer teacherID);
     //增加老师
     void addTeacher(Teacher teacher);
+
+    Teacher findById(int teacherID);
+
+    void updateTeacher(Teacher teacher);
 }

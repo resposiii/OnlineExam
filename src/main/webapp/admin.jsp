@@ -92,7 +92,7 @@
                         <button class="btn btn-yellow btn-xs" data-toggle="modal" data-target="#addStudent">添加用户</button>
                     </div>
                     <div class="col-xs-4">
-                        <form action="findByName" method="post">
+                        <form action="findStudentByName" method="post">
                             <input type="text" class="form-control input-sm" name="studentName" placeholder="输入姓名搜索">
                             <button class="btn btn-white btn-xs " type="submit">查 询 </button>
                         </form>
@@ -138,7 +138,7 @@
                                         ${students.cardID}
                                 </div>
                                 <div class="col-xs-2">
-                                    <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#reviseUser">修改</button>
+                                    <a class="btn btn-success btn-xs" data-toggle="modal" href="beforeUpdateStudents?studentID=${students.studentID}">修改</a>
                                     <a class="btn btn-danger btn-xs" href="deleteStudent?studentID=${students.studentID}">删除</a>
                                 </div>
                             </div>
@@ -261,7 +261,7 @@
                                         ${teachers.teacherPassword}
                                 </div>
                                 <div class="col-xs-2">
-                                    <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#reviseUser">修改</button>
+                                    <a class="btn btn-success btn-xs" data-toggle="modal" href="beforeUpdateTeacher?teacherID=${teachers.teacherID}">修改</a>
                                     <a class="btn btn-danger btn-xs" data-toggle="modal" href="deleteTeacher?teacherID=${teachers.teacherID}">删除</a>
                                 </div>
                             </div>
@@ -361,12 +361,12 @@
                     </div>
 
                 </div>
-                <!--试卷管理模块-->
+                <!--试题管理模块-->
                 <div role="tabpanel" class="tab-pane" id="scho">
 
                     <div class="check-div form-inline">
                         <div class="col-xs-3">
-                            <button class="btn btn-yellow btn-xs" data-toggle="modal" data-target="#addSchool">添加试卷</button>
+                            <button class="btn btn-yellow btn-xs" data-toggle="modal" data-target="#addSchool">添加试题</button>
                         </div>
                     </div>
                     <div class="data-div">
@@ -403,7 +403,6 @@
                                         ${questions.types}
                                     </div>
                                     <div class="col-xs-2">
-                                        <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#reviseUser">修改</button>
                                         <a class="btn btn-danger btn-xs" data-toggle="modal" href="deleteQuestions?id=${questions.id}">删除</a>
                                     </div>
                                 </div>
@@ -412,7 +411,7 @@
                     </div>
                     <!--页码块-->
 
-                    <!--弹出添加试卷窗口-->
+                    <!--弹出添加试题窗口-->
                     <div class="modal fade" id="addSchool" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">

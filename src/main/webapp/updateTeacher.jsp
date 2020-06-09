@@ -27,19 +27,16 @@
     <div class="main">
         <h2>更新信息</h2>
         <br>
-        <form action="updateStudent" method="post">
-            <input type="hidden" name="studentID" value="${student.studentID }">
+        <form action="updateTeacher" method="post">
+            <input type="hidden" name="teacherID" value="${teacher.teacherID}">
             <p class="in"><span class="glyphicon glyphicon-user"></span>姓名：</p>
-            <input type="text" name="studentName" class="form-control" id="form-control" value="${student.studentName }">
+            <input type="text" name="teacherName" class="form-control" id="form-control" value="${teacher.teacherName}">
             <br/><br/><br/><br/>
             <p class="in"><span class="glyphicon glyphicon-user"></span>性别：</p>
-            <input type="text" name="gender" class="form-control" id="form-control" value="${student.gender }">
-            <br/><br/><br/><br/>
-            <p class="in"><span class="glyphicon glyphicon-user"></span>身份证号：</p>
-            <input type="text" name="cardID" class="form-control" id="form-control" value="${student.cardID }">
+            <input type="text" name="gender" class="form-control" id="form-control" value="${teacher.gender }">
             <br/><br/><br/><br/>
             <p class="in"><span class="glyphicon glyphicon-lock"></span>密码：</p>
-            <input type="text" name="studentPassword" class="form-control" id="form-control" value="${student.studentPassword}">
+            <input type="text" name="teacherPassword" class="form-control" id="form-control" value="${teacher.teacherPassword}">
             <br/><br/>
             <input type="submit" class="btn btn-warning" id="btn" value="确定修改">
             <br/><br/>

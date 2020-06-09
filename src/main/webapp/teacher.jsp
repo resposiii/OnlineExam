@@ -421,30 +421,26 @@
                 </div>
                 <div class="data-div">
                     <div class="row tableHeader">
-                        <div class="col-xs-3 ">
+                        <div class="col-xs-4 ">
                             姓名
                         </div>
-                        <div class="col-xs-3">
+                        <div class="col-xs-4">
                             学号
                         </div>
-                        <div class="col-xs-3">
+                        <div class="col-xs-4">
                             成绩
-                        </div>
-
-                        <div class="col-xs-3">
-                            操作
                         </div>
                     </div>
                     <div class="tablebody">
                         <c:forEach items="${scores}" var="scores">
                             <div class="row">
-                                <div class="col-xs-3 ">
+                                <div class="col-xs-4 ">
                                         ${scores.studentName}
                                 </div>
-                                <div class="col-xs-3">
+                                <div class="col-xs-4">
                                         ${scores.studentID}
                                 </div>
-                                <div class="col-xs-3">
+                                <div class="col-xs-4">
                                         ${scores.score}
                                 </div>
                             </div>
@@ -503,7 +499,6 @@
 
         </div>
     </div>
-
     <script src="js/jquery.nouislider.js"></script>
 
 

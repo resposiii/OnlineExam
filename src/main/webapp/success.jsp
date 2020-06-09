@@ -56,6 +56,10 @@
 <c:when test="${sessionScope.url=='/student' }">
         <%response.setHeader("refresh", "0,url=student.jsp"); %>
 </c:when>
+<c:when test="${sessionScope.url=='/updateStudent' }">
+<h1 align="center">更新成功，重新登陆!!!</h1>
+        <%response.setHeader("refresh", "1,url=s_login.jsp"); %>
+</c:when>
 <c:when test="${sessionScope.url=='/addQuestion' }">
 <h1 align="center">添加试题,成功!!!</h1>
         <a href="t_login?teacherName=${sessionScope.teacher.teacherName}
@@ -107,6 +111,18 @@
 
 <c:when test="${sessionScope.url=='/deleteNotices'}">
 <h1 align="center">删除,成功!!!</h1>
+<a href="a_login?adminName=${sessionScope.admin.adminName}
+        &password=${sessionScope.admin.password}">返回</a>
+</c:when>
+
+<c:when test="${sessionScope.url=='/updateStudents'}">
+<h1 align="center">更新,成功!!!</h1>
+<a href="a_login?adminName=${sessionScope.admin.adminName}
+        &password=${sessionScope.admin.password}">返回</a>
+</c:when>
+
+<c:when test="${sessionScope.url=='/updateTeacher'}">
+<h1 align="center">更新,成功!!!</h1>
 <a href="a_login?adminName=${sessionScope.admin.adminName}
         &password=${sessionScope.admin.password}">返回</a>
 </c:when>

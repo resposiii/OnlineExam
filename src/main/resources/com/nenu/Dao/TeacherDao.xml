@@ -15,6 +15,10 @@
     <select id="findByName" resultType="com.nenu.domain.Teacher">
         select * from teacher where teacherName = #{teacherName}
     </select>
+
+    <select id="findById" resultType="com.nenu.domain.Teacher">
+        select * from teacher where teacherID = #{teacherID}
+    </select>
     <!-- 新增学生 -->
     <insert id="addTeacher" parameterType="com.nenu.domain.Teacher">
         insert into teacher (teacherName,gender,teacherPassword) values
@@ -24,4 +28,10 @@
     <delete id="deleteTeacher" parameterType="java.lang.Integer">
         delete from teacher where teacherID = #{teacherID}
     </delete>
+
+    <update id="updateTeacher" parameterType="com.nenu.domain.Teacher">
+        update teacher set teacherName=#{teacherName},gender=#{gender},
+        teacherPassword=#{teacherPassword} where
+        teacherID = #{teacherID}
+    </update>
 </mapper>

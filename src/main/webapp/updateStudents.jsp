@@ -27,7 +27,7 @@
     <div class="main">
         <h2>更新信息</h2>
         <br>
-        <form action="updateStudent" method="post">
+        <form action="updateStudents" method="post">
             <input type="hidden" name="studentID" value="${student.studentID }">
             <p class="in"><span class="glyphicon glyphicon-user"></span>姓名：</p>
             <input type="text" name="studentName" class="form-control" id="form-control" value="${student.studentName }">

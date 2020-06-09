@@ -112,7 +112,8 @@ public class StudentController {
     }
 
     @RequestMapping("/updateStudent")
-    public String updateStudent(Student student){
+    public String updateStudent(Student student,HttpSession session){
+        session.setAttribute("url","/updateStudent");
         iStudentService.updateStudent(student);
         return "success";
     }
@@ -147,7 +148,14 @@ public class StudentController {
         List<Integer> questionIds = (List<Integer>) session.getAttribute("questionsIds");
         List<String> userAnswers=new ArrayList<>();
         List<String> answers = new ArrayList<>();
+
+        List<Questions> questions = new ArrayList<>();
         //获取用户选择
+
+        for (int i=0;i<5;i++){
+            questions.add(questionService.findQuestionById(questionIds.get(i)));
+        }
+
         for (int i=0;i<5;i++){
             userAnswers.add(request.getParameter("subjectOption-"+questionIds.get(i)));
         }
@@ -155,6 +163,7 @@ public class StudentController {
         for (int i=0;i<5;i++){
             answers.add(questionService.findQuestionById(questionIds.get(i)).getAnswer());
         }
+        session.setAttribute("questions",questions);
         for (int i=0;i<5;i++){
             if ((userAnswers.get(i)).equals(answers.get(i))){
                 scores+=20;

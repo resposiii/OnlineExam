@@ -12,6 +12,10 @@
             font-size:20px;
             color: blue;
         }
+        div{
+            margin-left: 450px;
+            margin-right: 450px;
+        }
     </style>
 </head>
 <body>
@@ -25,6 +29,31 @@
 <h1 align="center">真棒!</h1>
 </c:if>
 <h1 align="center" style="color: red;">你的最终得分:${sessionScope.scores}</h1>
+    <%int i=1;%>
+<div>
+    <c:forEach items="${questions}" var="question">
+        <tr><%out.print(i++);%>
+            .(${question.subject})${question.title}</tr>
+        <br/>
+        <tr>
+            <td><input type="radio"
+                       name="subjectOption-${question.id}"
+                       id="ans1-${question.id}" value="A">${question.ans1}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <td><input type="radio"
+                       name="subjectOption-${question.id}"
+                       id="ans2-${question.id}" value="B">${question.ans2}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <td><input type="radio"
+                       name="subjectOption-${question.id}"
+                       id="ans3-${question.id}" value="C">${question.ans3}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <td><input type="radio"
+                       name="subjectOption-${question.id}"
+                       id="ans4-${question.id}" value="D">${question.ans4}</td>
+        </tr>
+        <br>
+        <td>正确答案:${question.answer}</td>
+        <hr/>
+    </c:forEach>
+</div>
 <a href="addScore?studentName=${sessionScope.student.studentName}&
 cardID=${sessionScope.student.cardID}&studentID=${sessionScope.student.studentID}&
-scores=${sessionScope.scores}">点击这里退出</a>
+scores=${sessionScope.scores}">点击这里退出并保存成绩</a>

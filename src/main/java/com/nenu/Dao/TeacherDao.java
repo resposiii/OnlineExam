@@ -1,5 +1,6 @@
 package com.nenu.Dao;
 
+import com.nenu.domain.Student;
 import com.nenu.domain.Teacher;
 import org.apache.ibatis.annotations.Param;
 
@@ -17,4 +18,8 @@ public interface TeacherDao {
     List<Teacher> findAll();
     //删除
     void deleteTeacher(Integer teacherID);
+
+    Teacher findById(int teacherID);
+
+    void updateTeacher(Teacher teacher);
 }

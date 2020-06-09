@@ -45,4 +45,14 @@ public class TeacherServiceImpl implements ITeacherService {
     public void addTeacher(Teacher teacher) {
         teacherDao.addTeacher(teacher);
     }
+
+    @Override
+    public Teacher findById(int teacherID) {
+        return teacherDao.findById(teacherID);
+    }
+
+    @Override
+    public void updateTeacher(Teacher teacher) {
+        teacherDao.updateTeacher(teacher);
+    }
 }
