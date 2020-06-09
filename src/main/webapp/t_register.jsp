@@ -49,8 +49,8 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="studentPassword">密码</label>
-                                            <input type="password" class="form-control" required id="studentPassword" name="teacherPassword" placeholder="">
+                                            <label for="teacherPassword">密码</label>
+                                            <input type="password" class="form-control" required id="teacherPassword" name="teacherPassword" placeholder="">
                                         </div>
                                     </div>
 
@@ -59,7 +59,6 @@
                                         <button class="btn btn-danger" type="reset">重置</button>
                                         <button><a class="btn btn-sm btn-info" href="index.jsp">返回</a></button>
                                     </div>
-
                                 </div>
                             </div>
                         </form>

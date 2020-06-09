@@ -32,7 +32,7 @@
                                     <div class="card-body">
 
                                         <div class="form-group">
-                                            <label for="name">账号</label>
+                                            <label for="name">姓名</label>
                                             <input type="text" class="form-control" required name="studentName" id="name" placeholder="请输入你的姓名">
                                         </div>
 
@@ -56,7 +56,7 @@
 
                                         <div class="form-group">
                                             <label for="studentPassword">密码</label>
-                                            <input type="password" class="form-control" required id="studentPassword" name="studentPassword" placeholder="">
+                                            <input type="text" class="form-control"  id="studentPassword" required name="studentPassword" placeholder="">
                                         </div>
                                     </div>
 

@@ -65,12 +65,11 @@ public class TeacherController {
 
     @RequestMapping(value = "/t_register")
     public String register(Teacher teacher){
-        String teacherName = teacher.getTeacherName();
         //无该用户可以注册
-        if (teacherService.findByName(teacherName)==null){
+        if (teacher!=null){
             teacherService.t_register(teacher);
 //            跳转
-            return "success";
+            return "t_login";
         }
         else{
             return "error";

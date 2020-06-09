@@ -65,20 +65,19 @@ public class StudentController {
     }
 
 //跳转到注册
-    @RequestMapping("/registerPage")
-    public String registerPage(){
-        return "s_register";
-    }
+//    @RequestMapping("/registerPage")
+//    public String registerPage(){
+//        return "s_register";
+//    }
 
     //注册
     @RequestMapping(value = "/s_register")
     public String register(Student student){
-        String studentName = student.getStudentName();
         //无该用户可以注册
-        if (iStudentService.findByName(studentName)==null){
+        if (student!=null){
             iStudentService.s_register(student);
 //            跳转
-            return "success";
+            return "s_login";
         }
         else{
             return "error";

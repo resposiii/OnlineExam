@@ -97,7 +97,7 @@
 | id      | int         | 是         | 否       | 主键ID |
 | Subject | varchar(50) | 否         | 否       | 科目   |
 | title   | varchar(50) | 否         | 否       | 题目   |
-| Type    | varchar(50) | 否         | 否       | 类型   |
+|types  | varchar(50) | 否         | 否       | 类型   |
 | ans1    | varchar(50) | 否         | 否       | A选项  |
 | ans2    | varchar(50) | 否         | 否       | B选项  |
 | ans3    | varchar(50) | 否         | 否       | C选项  |
@@ -183,3 +183,6 @@ JDBC方式java连接mysql
 >建立外键教程https://www.php.cn/tool/navicat/427976.html
 "method = RequestMethod.GET"这个去掉，就可以同时处理GET和POST请求。
 ---
+>Mybatis教程:https://www.bilibili.com/video/BV1UJ411w7xr
+>SpringMVC教程:https://www.bilibili.com/video/BV1Sb411s7qa
+>Spring教程:https://www.bilibili.com/video/BV1Sb411s7vP
