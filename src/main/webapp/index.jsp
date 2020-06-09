@@ -39,7 +39,6 @@
     <div class="jumbotron">
         <h1>考试无忧</h1>
         <p class="lead">优化考试环境，提高考试质量，注册后就可以考试</p>
-        <p><a class="btn btn-lg btn-info" href="s_register.jsp" role="button">现在注册</a></p>
         <p><a class="btn btn-lg btn-success" href="s_login.jsp" role="button">现在登录</a></p>
         <p><a class="btn btn-lg btn-success" href="t_login.jsp" role="button">教师登录</a></p>
     </div>

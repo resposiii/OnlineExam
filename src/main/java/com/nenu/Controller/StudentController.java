@@ -46,6 +46,10 @@ public class StudentController {
             //登录成功保存在session
             session.setAttribute("student",student);
             List<Notice> notices = noticeService.findAllNotice();
+
+            List<Score> scores = scoreService.findScoreByName(studentName);
+            session.setAttribute("scores",scores);
+
             session.setAttribute("notices",notices);
             session.setAttribute("url","/student");
             //跳转页面

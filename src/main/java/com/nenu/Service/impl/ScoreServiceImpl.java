@@ -30,4 +30,9 @@ public class ScoreServiceImpl implements IScoreService {
     public void addScore(Score score) {
         scoreDao.addScore(score);
     }
+
+    @Override
+    public List<Score> findScoreByName(String studentName) {
+        return scoreDao.findScoreByName(studentName);
+    }
 }

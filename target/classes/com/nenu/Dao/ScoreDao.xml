@@ -15,4 +15,8 @@
         insert into score (studentID,cardID,studentName,score) values
         (#{studentID},#{cardID},#{studentName},#{score})
     </insert>
+
+    <select id="findScoreByName" resultType="com.nenu.domain.Score">
+        select * from score where studentName = #{studentName}
+    </select>
 </mapper>

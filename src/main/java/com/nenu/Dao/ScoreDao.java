@@ -11,4 +11,6 @@ public interface ScoreDao {
     List<Score> findScoreById(int studentID);
 //    增加
     void addScore(Score score);
+
+    List<Score> findScoreByName(String studentName);
 }

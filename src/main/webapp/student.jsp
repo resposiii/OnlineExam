@@ -44,6 +44,11 @@
             </a>
         </li>
         <li>
+            <a href="#score" data-toggle="tab">
+                成绩信息
+            </a>
+        </li>
+        <li>
             <a href="#notice" data-toggle="tab">
                  公告信息
             </a>
@@ -79,12 +84,34 @@
         <div class="tab-pane fade" id="notice">
             <table class="table table-bordered">
                 <thead>
+                <th>编号</th>
                 <th>公告</th>
                 </thead>
                 <tbody>
                 <c:forEach items="${notices}" var="notices">
                     <tr>
+                        <td>${notices.id}</td>
                         <td>${notices.title}</td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade" id="score">
+            <table class="table table-bordered">
+                <thead>
+                <th>考试编号</th>
+                <th>学号</th>
+                <th>姓名</th>
+                <th>成绩</th>
+                </thead>
+                <tbody>
+                <c:forEach items="${scores}" var="scores">
+                    <tr>
+                        <td>${scores.id}</td>
+                        <td>${scores.studentID}</td>
+                        <td>${scores.studentName}</td>
+                        <td>${scores.score}</td>
                     </tr>
                 </c:forEach>
                 </tbody>
