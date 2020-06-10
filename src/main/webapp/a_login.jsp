@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" name="viewport">
-    <title>在线考试系统｜教师登陆</title>
+    <title>在线考试系统｜管理员登陆</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
 </head>
 <body>

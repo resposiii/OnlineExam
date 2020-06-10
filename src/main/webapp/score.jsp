@@ -36,18 +36,10 @@
             .(${question.subject})${question.title}</tr>
         <br/>
         <tr>
-            <td><input type="radio"
-                       name="subjectOption-${question.id}"
-                       id="ans1-${question.id}" value="A">${question.ans1}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <td><input type="radio"
-                       name="subjectOption-${question.id}"
-                       id="ans2-${question.id}" value="B">${question.ans2}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <td><input type="radio"
-                       name="subjectOption-${question.id}"
-                       id="ans3-${question.id}" value="C">${question.ans3}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <td><input type="radio"
-                       name="subjectOption-${question.id}"
-                       id="ans4-${question.id}" value="D">${question.ans4}</td>
+            <td>A:${question.ans1}</td>&nbsp;&nbsp;
+            <td>B:${question.ans2}</td>&nbsp;&nbsp;
+            <td>C:${question.ans3}</td>&nbsp;&nbsp;
+            <td>D:${question.ans4}</td>
         </tr>
         <br>
         <td>正确答案:${question.answer}</td>

@@ -111,7 +111,7 @@
                             科目
                         </div>
                         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
-                            题目类型
+                            题目内容
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                             操作
@@ -127,7 +127,7 @@
                                     <div>${questions.subject}</div>
                                 </div>
                                 <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
-                                        ${questions.types}
+                                        ${questions.title}
                                 </div>
                                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                                     <a class="btn btn-success btn-xs" href="beforeUpdateQuestion?id=${questions.id}">修改</a>

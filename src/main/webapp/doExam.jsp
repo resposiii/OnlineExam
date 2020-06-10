@@ -62,32 +62,44 @@
                                 <tr>
                                     <td><input type="radio"
                                                name="subjectOption-${question.id}"
-                                               id="ans1-${question.id}" value="A">${question.ans1}</td>
+                                               id="ans1-${question.id}" value="A">A:${question.ans1}</td>
                                     <br/>
                                     <td><input type="radio"
                                                name="subjectOption-${question.id}"
-                                               id="ans2-${question.id}" value="B">${question.ans2}</td>
+                                               id="ans2-${question.id}" value="B">B:${question.ans2}</td>
                                     <br/>
                                     <td><input type="radio"
                                                name="subjectOption-${question.id}"
-                                               id="ans3-${question.id}" value="C">${question.ans3}</td>
+                                               id="ans3-${question.id}" value="C">C:${question.ans3}</td>
                                     <br/>
                                     <td><input type="radio"
                                                name="subjectOption-${question.id}"
-                                               id="ans4-${question.id}" value="D">${question.ans4}</td>
+                                               id="ans4-${question.id}" value="D">D:${question.ans4}</td>
                                 </tr>
                                 <hr/>
                             </c:forEach>
-                            <button type="submit" class="btn btn-success">提交</button>
+                            <button type="submit" id="btn1" class="btn btn-success">提交</button>
                     </div>
                 </div>
             </div>
         </form>
     </div>
-
 </div>
-
 <script type="text/javascript" src="js/core/jquery.3.2.1.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $("#btn1").click(function(){
+            var ids=${subjectIds};
+            for(let i=0;i<5;i++){
+                var choose="input[name='subjectOption-"+ids[i]+"']:checked";
+                if($(choose).val()==null){//判断单选框是否被选择
+                    alert("第"+(i+1)+"题还没有做出选择");
+                    return false;//通过return false 阻止表单的提交
+                }
+            }
+        });
+    });
+</script>
 <script type="text/javascript">
     var intDiff = parseInt(200);//倒计时总秒数量,我这里测试输的是60s，可以在出试卷的时候设置？
     function timer(intDiff)//倒计时方法
