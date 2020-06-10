@@ -48,7 +48,7 @@
 
 前台框架：Bootstrap
 
-后台框架：Spring Data Jpa、Spring Boot 、Mybatis （参考 https://www.cnblogs.com/chenglc/p/11226693.html）
+后台框架：SpringMVC、Spring、Mybatis
 
 数据库：MySQL 5.7
 
